@@ -1,8 +1,12 @@
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Code, Inter } from "next/font/google";
+import Header from "../components/custom/Header";
+import { ThemeProvider } from "../components/custom/Providers/theme-provider";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-inter" });
+const fira_code = Fira_Code({ subsets: ["latin"], display: 'swap', variable: "--font-fira_code" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +19,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={cn(
+      "min-h-screen bg-background",
+      inter.className,
+      fira_code.className
+    )}>
+      <body className="font-inter relative antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header/>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

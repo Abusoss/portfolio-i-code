@@ -1,0 +1,30 @@
+.LogoContainer{
+   grid-area: Logo;
+   max-height: 60px;
+ }
+ .MyLogo {
+   margin: 0.5rem 0;
+   min-width: 170px;
+   max-width: 170px;
+   font-size: 1.5rem;
+   margin: auto;
+   color: #59f687;
+   display: grid;
+   justify-content: center;
+   border-radius: 8px;
+   background-color: #111111;
+ }
+ .Logo {
+   grid-area: Logo;
+   max-width: 170px;
+   min-width: 100px;
+   display: block;
+   margin: auto;
+   justify-content: left;
+ }
+ .operator {
+   color: #4ca5d4;
+ }
+ .location {
+   color: #f84534;
+ }
