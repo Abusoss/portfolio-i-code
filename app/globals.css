@@ -34,6 +34,10 @@
 
       --radius: 0.5rem;
     }
+    ::selection {
+      color: hsl(var(--accent-foreground));
+      background: hsl(var(--accent));
+    }
 
     .dark {
       --background: 222.2 84% 4.9%;

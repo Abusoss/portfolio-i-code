@@ -31,8 +31,8 @@ export const CardContainer = ({
    const [isMouseEntered, setIsMouseEntered] = useState(false);
    const [pos, setPos] = useState({ x: 0, y: 0 });
    console.log("pos : ", pos);
-   const RangeOpacityY = useRange(pos.y, -24, 24, -0.30, 0.30);
-   const RangeOpacityX = useRange(pos.x, -38, 38, -0.30, 0.30);
+   const RangeOpacityY = useRange(pos.y, -24, 24, -0.40, 0.40);
+   const RangeOpacityX = useRange(pos.x, -38, 38, -0.40, 0.40);
    // const RangeOpacityY = useRangeExtreme(pos.y, -11.4, 11.4, 0, 0.25);
    // const RangeOpacityX = useRangeExtreme(pos.x, -8, 8, 0, 0.25);
 
@@ -64,7 +64,7 @@ export const CardContainer = ({
          const rad = Math.atan2(e.clientY - centerY, e.clientX - centerX);
          const rotation = rad * (180 / Math.PI);
          setPos({ x, y });
-         cardRef.current.style.transform = `rotateY(${-x}deg) rotateX(${-y}deg) scale3d(1, 1, 1)`;
+         cardRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale3d(1, 1, 1)`;
          glassRef.current.style.transform = `rotate(${rotation}deg) translate(-50%, -50%)`;
          glassRef.current.style.opacity = `${opacity}`;
       };
@@ -101,7 +101,7 @@ export const CardContainer = ({
          <div
             ref={cardRef}
             className={cn(
-               "relative [transform:rotateY(0deg)_rotateX(0deg)] w-fit h-fit overflow-hidden rounded-3xl",
+               "relative w-fit [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d] transition duration-200 ease-linear h-fit overflow-hidden rounded-3xl",
                containerClassName
             )}
             style={{
@@ -119,7 +119,7 @@ export const CardContainer = ({
                }}
             >
                {children}
-               <div className="z-0 glare-wrapper absolute top-0 left-0 w-full h-full overflow-hidden rounded-none [mask-image: -webkit-radial-gradient(center, white, black);] pointer-events-none">
+               <div className="z-0 glare-wrapper absolute top-0 left-0 w-full h-full overflow-hidden rounded-none [mask-image:_-webkit-radial-gradient(center,_white,_black);] pointer-events-none">
                   <div
                      ref={glassRef}
                      className={cn("glare opacity-0 absolute top-[50%] left-[50%] origin-[0%_0%] pointer-events-none [transition:_opacity_400ms_cubic-bezier(0.03,_0.98,_0.52,_0.99)_0s;] w-[800px] h-[800px] [background:_linear-gradient(90deg,_rgba(255,_255,_255,_0)_0%,_rgba(255,_255,_255,_0%)_40%,_rgba(255,_255,_255,_50%)_80%,_rgb(255,_255,_255)_100%);]",

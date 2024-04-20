@@ -2,7 +2,20 @@
 const nextConfig = {
    reactStrictMode: true,
    images: {
-      domains: ['localhost', 'api.daily.dev'],
+      remotePatterns:[
+         {
+           protocol: 'https',
+           hostname: 'api.daily.dev',
+           port: '',
+           pathname: '/**',
+         },
+         {
+            protocol: 'http',
+            hostname: '*.localhost',
+            port: '3000',
+            pathname: '/**',
+          },
+       ]
    },
    async headers() {
       return [

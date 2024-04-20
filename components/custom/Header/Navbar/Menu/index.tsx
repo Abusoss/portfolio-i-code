@@ -3,6 +3,7 @@
 import Link from "next/link"
 import * as React from "react"
 
+import StaticLogo from "@/components/custom/Logo/StaticLogo"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -56,7 +57,7 @@ const Menu = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent ">Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -65,10 +66,7 @@ const Menu = () => {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    <div className="grid grid-flow-row">
-                      <span className="text-[#4ca5d4]">~</span>
-                      <p className="mb-2 font-fira text-[#59f687] text-lg font-medium"> <span className="text-[#f84534]"> => </span>i-code</p>
-                    </div>
+                    <StaticLogo/>
                     {/* <div className="mb-2 mt-4 text-lg font-medium">
                       shadcn/ui
                     </div> */}
@@ -93,7 +91,7 @@ const Menu = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent  ">Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -110,7 +108,7 @@ const Menu = () => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent`}>
               Documentation
             </NavigationMenuLink>
           </Link>

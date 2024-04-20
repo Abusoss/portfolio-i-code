@@ -1,0 +1,17 @@
+{
+  "name": "directus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "directus start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "directus": "^10.10.7",
+    "pg": "^8.11.5"
+  }
+}
