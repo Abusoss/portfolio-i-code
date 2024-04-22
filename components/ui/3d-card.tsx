@@ -30,7 +30,7 @@ export const CardContainer = ({
    const cardRef = useRef<HTMLDivElement>(null);
    const [isMouseEntered, setIsMouseEntered] = useState(false);
    const [pos, setPos] = useState({ x: 0, y: 0 });
-   console.log("pos : ", pos);
+   // console.log("pos : ", pos);
    const RangeOpacityY = useRange(pos.y, -24, 24, -0.40, 0.40);
    const RangeOpacityX = useRange(pos.x, -38, 38, -0.40, 0.40);
    // const RangeOpacityY = useRangeExtreme(pos.y, -11.4, 11.4, 0, 0.25);
@@ -70,7 +70,7 @@ export const CardContainer = ({
       };
 
       const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-         console.log("mouse enter");
+         // console.log("mouse enter");
          setIsMouseEntered(true);
          if (!containerRef) return;
          if (!containerRef.current) return;
@@ -79,7 +79,7 @@ export const CardContainer = ({
       };
 
       const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-         console.log("mouse leave");
+         // console.log("mouse leave");
          if (!containerRef) return;
          if (!containerRef.current) return;
          if (!glassRef.current) return;

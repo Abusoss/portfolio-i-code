@@ -70,7 +70,7 @@ export default function MyLogo() {
               wrapper={TypeParams.wrapper}
               deletionSpeed={TypeParams.deletionSpeed}
               speed={TypeParams.speed}
-              className=' text-3xl w-full [word-spacing:-15px;] text-[var(--background)] dark:text-[#59f687] text-left'
+              className=' text-3xl h-[2.25rem] w-full [word-spacing:-15px;] text-[var(--background)] dark:text-[#59f687] text-left'
               repeat={TypeParams.repeat}
             />
           </div>

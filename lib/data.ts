@@ -8,6 +8,14 @@ const HomeQuery = graphql(`
         Home {
             Hero_title
             Hero_description
+            Hero_a_propos_titre
+            Hero_a_propos_sous_titre
+            Hero_a_propos_texte
+            Portrait {
+                filename_disk
+                focal_point_x
+                focal_point_y
+            }
         }
     }
     `,
@@ -27,7 +35,6 @@ export async function getHome() {
     //     console.error(error);
     // });
     return request(env.NEXT_PUBLIC_GRAPHQL, HomeQuery).then((data) => {
-        console.log(data);
         return data.Home;
     });
 };
