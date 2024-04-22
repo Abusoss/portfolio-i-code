@@ -15,7 +15,6 @@ export const TracingBeam = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end start"],
   });
@@ -46,7 +45,6 @@ export const TracingBeam = ({
 
   return (
     <motion.div
-      ref={ref}
       className={cn("relative w-full mx-auto h-full", className)}
     >
       <div className="absolute left-40 md:left-40 top-3 z-10">
