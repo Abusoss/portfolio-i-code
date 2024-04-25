@@ -1,4 +1,5 @@
 "use server"
+import { GiphyFetch } from "@giphy/js-fetch-api";
 import { request } from "graphql-request";
 import { env } from 'process';
 import { graphql } from './graphql';
@@ -22,19 +23,15 @@ const HomeQuery = graphql(`
 );
 // You can now use this in your `useQuery` calls.
 export async function getHome() {
-    // return fetch("http://0.0.0.0:8055/graphql", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({query:query}),
-    // }).then((data) => {
-    //     console.log("hello");
-    //     console.log(data);
-    // }).catch((error) => {
-    //     console.error(error);
-    // });
     return request(env.NEXT_PUBLIC_GRAPHQL, HomeQuery).then((data) => {
         return data.Home;
     });
 };
+
+
+export async function getGif({ apiKey, id }: { apiKey: string, id: string }) {
+    const giphyFetch = new GiphyFetch(apiKey);
+    return giphyFetch.gif(id).then((data) => {
+        return data.data;
+    });
+}

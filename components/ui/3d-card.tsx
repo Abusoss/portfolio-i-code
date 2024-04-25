@@ -55,8 +55,8 @@ export const CardContainer = ({
          if (!glassRef.current) return;
          const { left, top, width, height } =
             containerRef.current.getBoundingClientRect();
-         const x = (e.clientX - left - width / 2) / 25;
-         const y = (e.clientY - top - height / 2) / 25;
+         const x = (e.clientX - left - width / 2) / 50;
+         const y = (e.clientY - top - height / 2) / 20;
          const centerX = left + width / 2;
          const centerY = top + height / 2;
 
@@ -64,7 +64,7 @@ export const CardContainer = ({
          const rad = Math.atan2(e.clientY - centerY, e.clientX - centerX);
          const rotation = rad * (180 / Math.PI);
          setPos({ x, y });
-         cardRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale3d(1, 1, 1)`;
+         cardRef.current.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
          glassRef.current.style.transform = `rotate(${rotation}deg) translate(-50%, -50%)`;
          glassRef.current.style.opacity = `${opacity}`;
       };
@@ -101,34 +101,23 @@ export const CardContainer = ({
          <div
             ref={cardRef}
             className={cn(
-               "relative w-fit [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d] transition duration-200 ease-linear h-fit overflow-hidden rounded-3xl",
+               "relative w-fit [transform-style:preserve-3d] [perspective:1000px;]  [&>*]:[transform-style:preserve-3d] [transition:all_400ms_cubic-bezier(0.03,_0.98,_0.52,_0.99)_0s;] h-fit overflow-hidden rounded-3xl will-change-transform [scale3d:1,1,1;]",
                containerClassName
             )}
-            style={{
-               perspective: "1000px",
-            }}
          >
             <div
                className={cn(
                   "relative w-fit",
                   className
                )}
-               style={{
-                  transformStyle: "preserve-3d",
-                  willChange: "transform",
-               }}
             >
                {children}
                <div className="z-0 glare-wrapper absolute top-0 left-0 w-full h-full overflow-hidden rounded-none [mask-image:_-webkit-radial-gradient(center,_white,_black);] pointer-events-none">
                   <div
                      ref={glassRef}
-                     className={cn("glare opacity-0 absolute top-[50%] left-[50%] origin-[0%_0%] pointer-events-none [transition:_opacity_400ms_cubic-bezier(0.03,_0.98,_0.52,_0.99)_0s;] w-[800px] h-[800px] [background:_linear-gradient(90deg,_rgba(255,_255,_255,_0)_0%,_rgba(255,_255,_255,_0%)_40%,_rgba(255,_255,_255,_50%)_80%,_rgb(255,_255,_255)_100%);]",
+                     className={cn("glare opacity-0 absolute top-[50%] left-[50%] origin-[0%_0%] pointer-events-none [transition:_all_400ms_cubic-bezier(0.03,_0.98,_0.52,_0.99)_0s;] w-[800px] h-[800px] [background:_linear-gradient(90deg,_rgba(255,_255,_255,_0)_0%,_rgba(255,_255,_255,_0%)_40%,_rgba(255,_255,_255,_50%)_80%,_rgb(255,_255,_255)_100%);] will-change-transform [transform-style:preserve-3d]",
                         className
-                     )}
-                     style={{
-                        transformStyle: "preserve-3d",
-                        willChange: "transform",
-                     }}>
+                     )}>
                      {/* style="position: absolute; top: 50%; left: 50%; transform-origin: 0% 0%; pointer-events: none; width: 604.861px; height: 604.861px;" */}
                   </div>
                </div>

@@ -1,9 +1,9 @@
 import Home from "@/components/custom/Home";
-import { getHome } from "@/lib/data";
+import { getGifs, getHome } from "@/lib/data";
 import {
-  dehydrate,
   HydrationBoundary,
-  QueryClient
+  QueryClient,
+  dehydrate
 } from '@tanstack/react-query';
 
 export default async function Page() {
@@ -12,6 +12,12 @@ export default async function Page() {
     queryKey: ['Home'],
     queryFn: getHome,
   })
+  await queryClient.prefetchQuery({
+    queryKey: ['Gif'],
+    queryFn: () => getGifs({ apiKey: "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh", id: "TfbqwmizD6vTrrhJuL" }),
+  })
+  // apiKey : "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh"
+  // id : "fpXxIjftmkk9y"
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Home />

@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "directus start"
+    "start": "directus start",
+    "dev": "directus start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "workspaces": ["./"],
   "dependencies": {
     "directus": "^10.10.7",
     "pg": "^8.11.5"
