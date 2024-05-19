@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "directus start",
-    "dev": "directus start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": ["./"],
   "dependencies": {
-    "directus": "^10.10.7",
+    "directus": "^10.11.0",
     "pg": "^8.11.5"
   }
 }

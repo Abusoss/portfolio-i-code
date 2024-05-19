@@ -1,11 +1,10 @@
 "use client"
+import { TracingBeam } from "@/components/ui/tracing-beam"
 import { getHome } from "@/lib/data"
 import { useQuery } from "@tanstack/react-query"
-import DevCard from "../DevCard"
 import { ProfileForm } from "./Contact"
 import Hero from "./Hero"
 import Presentation from "./Presentation"
-import { TracingBeam } from "@/components/ui/tracing-beam"
 
 export interface HeroType {
    Hero_description?: string | null | undefined;
@@ -46,8 +45,7 @@ export default function Home() {
          <TracingBeam className="px-6">
          <Presentation<HomeType['Portrait']> {...Home?.Portrait} {...a_propos}/>
          <ProfileForm/>
-
-         <DevCard />
+         {/* <DevCard /> */}
          </TracingBeam>
       </main>
    )

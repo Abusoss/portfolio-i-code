@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Fira_Code, Inter } from "next/font/google";
 // import { Client, Provider, cacheExchange, fetchExchange } from 'urql';
 import TanstackProvider from "@/Providers/TanstackProvider";
+import { Footer } from "@/components/custom/Footer";
 import { ThemeProvider } from "../Providers/ThemeProvider";
 import Header from "../components/custom/Header";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({
             <div>
               <Header />
               {children}
+              <Footer />
             </div>
           </ThemeProvider>
         </TanstackProvider>
