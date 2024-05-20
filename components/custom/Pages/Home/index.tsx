@@ -2,6 +2,7 @@
 import { TracingBeam } from "@/components/ui/tracing-beam"
 import { getHome } from "@/lib/data"
 import { useQuery } from "@tanstack/react-query"
+import { Separator } from "../../Separator"
 import { ProfileForm } from "./Contact"
 import Hero from "./Hero"
 import Presentation from "./Presentation"
@@ -42,10 +43,12 @@ export default function Home() {
          className="grid min-h-screen place-items-center"
       >
          <Hero<HomeType> {...Home} />
+         <Separator />
          <TracingBeam className="px-6">
-         <Presentation<HomeType['Portrait']> {...Home?.Portrait} {...a_propos}/>
-         <ProfileForm/>
-         {/* <DevCard /> */}
+            <Presentation<HomeType['Portrait']> {...Home?.Portrait} {...a_propos} />
+            <Separator />
+            <ProfileForm />
+            {/* <DevCard /> */}
          </TracingBeam>
       </main>
    )

@@ -1,4 +1,4 @@
-import Home from "@/components/custom/Pages/Home";
+import { Entreprise } from "@/components/custom/Pages/Entreprise";
 import { getGif, getHome } from "@/lib/data";
 import {
   HydrationBoundary,
@@ -20,7 +20,7 @@ export default async function Page() {
   // id : "fpXxIjftmkk9y"
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Home />
+      <Entreprise />
     </HydrationBoundary>
   );
 }

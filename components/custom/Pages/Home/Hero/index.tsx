@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import { HeroType } from "../index";
 
 function Hero<T>(props: T & HeroType) {
-   const TypeParams: TypeParams = {
+   const TypeParams = {
       wrapper: "span",
       speed: 20,
       deletionSpeed: 20,

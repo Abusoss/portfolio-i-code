@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { RefObject } from "react";
 import { CardContainer } from "../../ui/3d-card";
 
-const ThreeDCardDemo = () => {
-   const containerRef = useRef<HTMLDivElement>(null);
+const ThreeDCardDemo = ( {containerRef}:{containerRef: RefObject<HTMLDivElement>} ) => {
    return (
-      <div className="h-[calc(100vh_-_150px)] grid place-items-center w-full overflow-hidden" ref={containerRef}>
+      <div className="h-[calc(100vh_-_150px)] grid place-items-center w-full overflow-hidden">
          <CardContainer className="inter-var" containerRef={containerRef}>
             <Link target="__blank"
                className="rounded-xl text-xs font-normal dark:text-white" href="https://app.daily.dev/abusoss">

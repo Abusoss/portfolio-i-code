@@ -1,9 +1,9 @@
-import Home from "@/components/custom/Pages/Home";
+import { BTS } from "@/components/custom/Pages/BTS";
 import { getGif, getHome } from "@/lib/data";
 import {
-  HydrationBoundary,
-  QueryClient,
-  dehydrate
+   HydrationBoundary,
+   QueryClient,
+   dehydrate
 } from '@tanstack/react-query';
 
 export default async function Page() {
@@ -20,7 +20,7 @@ export default async function Page() {
   // id : "fpXxIjftmkk9y"
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Home />
+      <BTS />
     </HydrationBoundary>
   );
 }
