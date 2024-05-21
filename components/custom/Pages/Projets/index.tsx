@@ -1,5 +1,5 @@
 import { Title } from "../../Title"
-import { ProjetCard } from "./Card"
+import { ProjetCard } from "./Card/Projet"
 
 // Project Data:
 
