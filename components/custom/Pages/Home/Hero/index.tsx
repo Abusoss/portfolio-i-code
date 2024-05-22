@@ -1,8 +1,23 @@
 import { TypeAnimation } from "react-type-animation";
 import { HeroType } from "../index";
-
+type Wrapper = "span" | "div" | "p" | "strong" | "a" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "b"
+type GranularSpeed = {
+   type: "keyStrokeDelayInMs";
+   value: number;
+}
+type Speed = 1 | 2 | 3 | 4 | 5 | 6 | 16 | 55 | 50 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 51 | 52 | 53 | 54 | 56 | 57 | 58 | 59 | 60 | 61 | 62 | 63 | 64 | 65 | 66 | 67 | 68 | 69 | 70 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 | 97 | 98 | 99;
+type TypeParams = {
+   wrapper: Wrapper;
+   speed: Speed | GranularSpeed;
+   deletionSpeed: Speed | GranularSpeed;
+   repeat: number;
+   startDelay: number;
+   betweenDelay: number;
+   endDelay: number;
+   sequence: string[];
+}
 function Hero<T>(props: T & HeroType) {
-   const TypeParams = {
+   const Params:TypeParams = {
       wrapper: "span",
       speed: 20,
       deletionSpeed: 20,
@@ -17,17 +32,17 @@ function Hero<T>(props: T & HeroType) {
          'const JeSuis = () => {',
       ]
 
-   }
+   };
    const buildSequence = () => {
       const sequence = [];
-      sequence.push(TypeParams.startDelay);
-      TypeParams.sequence.forEach((text, index) => {
-         if (index <= TypeParams.sequence.length - 1) {
+      sequence.push(Params.startDelay);
+      Params.sequence.forEach((text, index) => {
+         if (index <= Params.sequence.length - 1) {
             sequence.push(text);
-            sequence.push(TypeParams.betweenDelay);
+            sequence.push(Params.betweenDelay);
          }
       })
-      sequence.push(TypeParams.endDelay);
+      sequence.push(Params.endDelay);
       return sequence;
    }
    return (
@@ -37,11 +52,11 @@ function Hero<T>(props: T & HeroType) {
          <div className="grid col-start-2 grid-flow-row gap-5 ">
             <TypeAnimation
                sequence={buildSequence()}
-               wrapper={TypeParams.wrapper}
-               deletionSpeed={TypeParams.deletionSpeed}
-               speed={TypeParams.speed}
+               wrapper={Params.wrapper}
+               deletionSpeed={Params.deletionSpeed}
+               speed={Params.speed}
                className=' text-2xl h-[2rem] w-full text-[var(--background)] dark:text-[#59f687] text-left'
-               repeat={TypeParams.repeat}
+               repeat={Params.repeat}
             />
             <div className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-500 text-[var(--background)] dark:text-white">
                <p className="grid gap-5 w-fit">
