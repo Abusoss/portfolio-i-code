@@ -1,6 +1,8 @@
-version: "3.8"
+# version: "3.8"
 services:
   router:
+    env_file:
+      - .env
     image: traefik:v3.0
     container_name: "router"
     ports:
@@ -16,16 +18,18 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host(`router.i-code.xyz`)"
+      - "traefik.http.routers.dashboard.rule=Host(`router.${HOST}`)"
       - "traefik.http.routers.dashboard.entrypoints=web"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth.users=router:$$2a$$12$$zyvnjJmBpKQKXWXpvLObRuz74eVmBCV4lR3GWzbRoYpyGJvAN0bNO"
+      - "traefik.http.middlewares.auth.basicauth.users=router:${BASIC_AUTH_PASSWORD}"
   api:
     build:
-      context: ./api
+      context: ./directus
       dockerfile: Dockerfile
     image: directus/directus:10.11.1
+    env_file:
+      - .env
     container_name: api
     restart: on-failure
     ports:
@@ -33,13 +37,7 @@ services:
     environment:
       HOST: "0.0.0.0"
       PORT: 8055
-      PUBLIC_URL: "http://api.i-code.xyz/"
-      DB_CLIENT: "pg"
-      DB_HOST: "eu-west-1.sql.xata.sh"
-      DB_PORT: "5432"
-      DB_DATABASE: "i-code_database"
-      DB_USER: "cs9f4n"
-      DB_PASSWORD: "xau_RwyjRojJyhu1iiKaIW83R4j9zST8KUXY1"
+      PUBLIC_URL: "https://api.${HOST}/"
       DB_SSL: "true"
       RATE_LIMITER_ENABLED: false
       RATE_LIMITER_STORE: "memory"
@@ -52,13 +50,6 @@ services:
       ASSETS_CACHE_TTL: "1d"
       STORAGE_LOCATIONS: "Cloudinary"
       STORAGE_CLOUDINARY_DRIVER: "cloudinary"
-      STORAGE_CLOUDINARY_ROOT: "./uploads"
-      STORAGE_CLOUDINARY_CLOUD_NAME: "do9jfuuqy"
-      STORAGE_CLOUDINARY_API_KEY: "845463472996127"
-      STORAGE_CLOUDINARY_API_SECRET: "ekZk30rgm4l992nqtjl8yXZYEjI"
-      STORAGE_CLOUDINARY_ACCESS_MODE: "public"
-      KEY: "b8076701-4b1a-42ca-9aa5-ed9b727a85ba"
-      SECRET: "Hqr9EhcxO81zq0ewWJoHHMY73s-ZCJQp"
       ACCESS_TOKEN_TTL: "15m"
       SESSION_COOKIE_NAME: "directus_session_token"
       SESSION_COOKIE_SAME_SITE: "lax"
@@ -78,12 +69,11 @@ services:
       CORS_MAX_AGE: 18000
       EXTENSIONS_PATH: "./extensions"
       EXTENSIONS_AUTO_RELOAD: "false"
-      EMAIL_FROM: "m.loulou9311@gmail.com"
       EMAIL_ALLOW_GUEST_SEND: "false"
       EMAIL_VERIFY_SETUP: "true"
       TELEMETRY: "false"
       GRAPHQL_INTROSPECTION: "true"
-      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "https://i-code.xyz, http://api.i-code.xyz"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "http://${HOST}, http://api.${HOST}"
     # volumes:
       # By default, uploads are stored in /directus/uploads
       # Always make sure your volumes matches the storage root when using
@@ -104,7 +94,7 @@ services:
       - "traefik.http.services.api.loadbalancer.server.port=8055"
       - "traefik.http.routers.api.entrypoints=web"
       - "traefik.http.services.api.loadbalancer.passhostheader=true"
-      - "traefik.http.routers.api.rule=Host(`api.i-code.xyz`)" # Hôte défini
+      - "traefik.http.routers.api.rule=Host(`api.${HOST}`)" # Hôte défini
       # - "traefik.http.routers.api.middlewares=api-auth"
       # - "traefik.http.middlewares.api-auth.basicauth.users=router:$$2a$$12$$zyvnjJmBpKQKXWXpvLObRuz74eVmBCV4lR3GWzbRoYpyGJvAN0bNO"
       # - "traefik.http.routers.app.entrypoints=web"

@@ -1,6 +1,8 @@
 # version: "3.8"
 services:
   router:
+    env_file:
+      - .env
     image: traefik:v3.0
     container_name: "router"
     ports:
@@ -26,6 +28,8 @@ services:
       context: ./directus
       dockerfile: Dockerfile
     image: directus/directus:10.11.1
+    env_file:
+      - .env
     container_name: api
     restart: on-failure
     ports:
