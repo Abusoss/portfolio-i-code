@@ -1,56 +1,10 @@
 {
-   "AWSEBDockerrunVersion": 2,
-   "volumes": [
-     {
-       "name": "letsencrypt",
-       "host": {
-         "sourcePath": "/letsencrypt"
-       }
-     },
-     {
-       "name": "log",
-       "host": {
-         "sourcePath": "/var/log/eb-docker/containers/router"
-       }
-     },
-     {
-       "name": "docker_sock",
-       "host": {
-         "sourcePath": "/var/run/docker.sock"
-       }
+   "AWSEBDockerrunVersion": 3,
+   "containerDefinitions": [],
+   "executionRoleArn": "arn:aws:iam::471112938142:role/aws-elasticbeanstalk-ec2-role",
+   "services": {
+     "web": {
+       "composeFile": "./docker-compose.yml"
      }
-   ],
-   "containerDefinitions": [
-     {
-       "name": "router",
-       "image": "traefik:v3.0",
-       "essential": true,
-       "memory": 512,
-       "portMappings": [
-         {
-           "containerPort": 80,
-           "hostPort": 80
-         },
-         {
-           "containerPort": 8080,
-           "hostPort": 8080
-         }
-       ],
-       "mountPoints": [
-         {
-           "sourceVolume": "letsencrypt",
-           "containerPath": "/letsencrypt"
-         },
-         {
-           "sourceVolume": "log",
-           "containerPath": "/log"
-         },
-         {
-           "sourceVolume": "docker_sock",
-           "containerPath": "/var/run/docker.sock",
-           "readOnly": true
-         }
-       ]
-     }
-   ]
+   }
  }
