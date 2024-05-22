@@ -22,12 +22,6 @@ providers:
 entryPoints:
   web:
     address: ":80"
-    forwardedHeaders:
-      trustedIPs:
-        - 172.31.0.0/16
-        - 172.31.0.0/20
-        - 172.31.32.0/20
-        - 172.31.16.0/20
 
 core:
   defaultRuleSyntax: v2
