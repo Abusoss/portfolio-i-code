@@ -27,7 +27,7 @@ services:
     build:
       context: ./directus
       dockerfile: Dockerfile
-    image: directus/directus:10.11.1
+    image: directus/directus:10.11.0
     env_file:
       - .env
     container_name: api
