@@ -6,7 +6,7 @@ const ContentSecurityPolicyStrict = `
   connect-src 'self' http://*.i-code.xyz/ https://*.i-code.xyz/;
   frame-src 'self' https://www.youtube.com/ https://youtu.be/;
   script-src 'self' 'unsafe-inline' use.typekit.net/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  img-src 'self' https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  img-src 'self' blob: data: https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/ https://media2.giphy.com/;
   child-src 'self' https://www.youtube.com/ https://youtu.be/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
   frame-ancestors 'self' https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
   style-src 'unsafe-inline' p.typekit.net/ http://localhost:3000/ use.typekit.net http://*.i-code.xyz/ https://*.i-code.xyz/;
