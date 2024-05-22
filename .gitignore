@@ -39,5 +39,3 @@ next-env.d.ts
 .history
 
 portfolio-zip.zip
-
-# Ignore all .env files in the root of a project
