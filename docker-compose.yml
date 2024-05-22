@@ -35,10 +35,9 @@ services:
     ports:
       - "8055:8055"
     environment:
-      HOST: "0.0.0.0"
       PORT: 8055
-      PUBLIC_URL: "https://api.${HOST}/"
-      DB_SSL: "false"
+      PUBLIC_URL: "http://api.${HOST}/"
+      DB_SSL: "true"
       RATE_LIMITER_ENABLED: "false"
       RATE_LIMITER_STORE: "memory"
       RATE_LIMITER_POINTS: 25
@@ -60,6 +59,8 @@ services:
       REFRESH_TOKEN_COOKIE_SAME_SITE: "lax"
       REFRESH_TOKEN_COOKIE_NAME: "directus_refresh_token"
       CORS_ENABLED: "true"
+      KEY: "${KEY_DIRECTUS}"
+      SECRET: "${SECRET_DIRECTUS}"
       # CORS_ORIGIN: https://vivoinparis.com, https://api.vivoinparis.com,
       CORS_ORIGIN: "*"
       CORS_METHODS: "GET,POST,PATCH,DELETE"
