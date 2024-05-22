@@ -64,7 +64,7 @@ export default function MyLogo() {
           <div style={{
             transform: `translate3d( ${iCodeTranslate}px , 0px , 0px)`
           }} className='grid grid-flow-col grid-cols-[min-content,1fr] items-center justify-items-start'>
-            <span className="text-[#f84534] w-fit pr-4">{'=>'}</span>
+            <span className="text-[#f84534] w-fit pr-4">{'=&gt;'}</span>
             <TypeAnimation
               sequence={buildSequence()}
               wrapper={TypeParams.wrapper}
