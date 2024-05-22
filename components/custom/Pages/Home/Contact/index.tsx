@@ -1,13 +1,13 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import {
-   Form,
-   FormControl,
-   FormDescription,
-   FormField,
-   FormItem,
-   FormLabel,
-   FormMessage,
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -86,7 +86,7 @@ export function ProfileForm() {
                </form>
                <div className="grid grid-flow-row place-content-center gap-4">
                   <p>
-                     Ou contactez moi directement à l'adresse suivante: <br />
+                     Ou contactez moi directement à l&apos;adresse suivante: <br />
                   </p>
                   <div className="relative">
                      <a className="peer hover:block underline" href="mailto:m.loulou9311@gmail.com">m.loulou9311@gmail.com</a>

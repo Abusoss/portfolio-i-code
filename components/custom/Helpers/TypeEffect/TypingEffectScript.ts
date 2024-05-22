@@ -22,7 +22,7 @@ function TypingEffectScript(props: { step: any; triggerStepUpdate: any; text1?: 
   } = returnVariables(props);
   (function typeDescriptions() {
     //timeOutNumber
-    //vitesse d'écriture
+    //vitesse d&apos;écriture
     let timeOutNumber = writingSpeed;
 
     if (

@@ -12,7 +12,7 @@ function Hero<T>(props: T & HeroType) {
       endDelay: 10000,
       sequence: [
          // Same substring at the start will only be typed out once, initially
-         "Salut, moi c'est",
+         "Salut, moi c&apos;est",
          // wait 1s before replacing "design" with "code"
          'const JeSuis = () => {',
       ]

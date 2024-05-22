@@ -31,7 +31,7 @@ function Presentation<T>(props: T & PresentationType['Portrait'] & AProposType) 
                         <span className='text-2xl'>🗣️</span> Soft skills
                      </p>
                      <p className='opacity-[.8]'>
-                        Avec des bases solides en conception et une compétence technique en développement, je suis un jeune développeur qui s'efforce de fournir des solutions de qualité. Je possède des compétences en codage et je développe également des compétences en gestion du temps et en multitâche, que j'apprends à maîtriser à travers des projets de développement de petite et moyenne envergure. Motivé et engagé, je suis constamment à la recherche d'opportunités pour accroître mes connaissances et rester informé des nouveautés du secteur. Avec un intérêt particulier pour la création d'applications à la fois innovantes et efficaces, je suis déterminé à apporter ma contribution et à réussir dans mes projets de développement.
+                        Avec des bases solides en conception et une compétence technique en développement, je suis un jeune développeur qui s&apos;efforce de fournir des solutions de qualité. Je possède des compétences en codage et je développe également des compétences en gestion du temps et en multitâche, que j&apos;apprends à maîtriser à travers des projets de développement de petite et moyenne envergure. Motivé et engagé, je suis constamment à la recherche d&apos;opportunités pour accroître mes connaissances et rester informé des nouveautés du secteur. Avec un intérêt particulier pour la création d&apos;applications à la fois innovantes et efficaces, je suis déterminé à apporter ma contribution et à réussir dans mes projets de développement.
                      </p>
                   </div>
                   <div className="grid p-5 dark:bg-[#1c1b23] h-fit rounded-md shadow-lg gap-2">
@@ -41,7 +41,7 @@ function Presentation<T>(props: T & PresentationType['Portrait'] & AProposType) 
                         <p className='inline-block text-[#4ca5d4]'>{'>'}</p> Développent et Projects
                      </div>
                      <p className='opacity-[.8]'>
-                        Le développement et l'exécution de projets sont ma passion. Je m'épanouis à relever les défis de concrétiser des idées par la programmation et de transformer des concepts en solutions fonctionnelles et robustes. Avec une planification minutieuse, des flux de travail efficaces et un souci du détail, je garantie la réussite de la livraison des projets, en atteignant les objectifs et en dépassant les attentes.
+                        Le développement et l&apos;exécution de projets sont ma passion. Je m&apos;épanouis à relever les défis de concrétiser des idées par la programmation et de transformer des concepts en solutions fonctionnelles et robustes. Avec une planification minutieuse, des flux de travail efficaces et un souci du détail, je garantie la réussite de la livraison des projets, en atteignant les objectifs et en dépassant les attentes.
                      </p>
                   </div>
                </div>

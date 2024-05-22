@@ -8,7 +8,7 @@ export const Footer = () => {
          <div className="pt-10">Vous avez trouvé un problème avec cette page ? <a className="text-blue-500" href="https://github.com/Abusoss/portfolio-i-code/tree/main/components/custom/Pages">Corrigez-la sur GitHub</a></div>
 
          <div className="py-3">
-            Besoin d'aide ? Envoyez un email à <a href="mailto:m.loulou9311@gmail.com"><span className="text-white font-bold">m.loulou9311@gmail.com</span></a>
+            Besoin d&apos;aide ? Envoyez un email à <a href="mailto:m.loulou9311@gmail.com"><span className="text-white font-bold">m.loulou9311@gmail.com</span></a>
          </div>
          <div className="flex justify-center items-center my-2">
             <a href="https://app.daily.dev/abusoss"><i className="w-6 inline-block mx-2">
