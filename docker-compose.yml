@@ -38,7 +38,7 @@ services:
       HOST: "0.0.0.0"
       PORT: 8055
       PUBLIC_URL: "https://api.${HOST}/"
-      DB_SSL: "true"
+      DB_SSL: "false"
       RATE_LIMITER_ENABLED: false
       RATE_LIMITER_STORE: "memory"
       RATE_LIMITER_POINTS: 25
