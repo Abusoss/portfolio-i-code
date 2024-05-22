@@ -1,5 +1,5 @@
 FROM directus/directus:10.11.0
-COPY ./extensions /directus/extensions
+# COPY ./extensions /directus/extensions
 # COPY ./eu-west-3-bundle.pem /directus/
 
 USER root
