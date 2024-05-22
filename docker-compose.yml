@@ -37,7 +37,7 @@ services:
       - "8055:8055"
     environment:
       PORT: 8055
-      PUBLIC_URL: "http://api.${HOST}/"
+      PUBLIC_URL: "http://api.i-code.xyz/"
       DB_SSL: "true"
       RATE_LIMITER_ENABLED: "false"
       RATE_LIMITER_STORE: "memory"
@@ -74,18 +74,18 @@ services:
       EMAIL_VERIFY_SETUP: "true"
       TELEMETRY: "false"
       GRAPHQL_INTROSPECTION: "true"
-      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "http://${HOST}, http://api.${HOST}"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "http://api.i-code.xyz/, http://api.i-code.xyz/"
     depends_on:
       - router
     networks:
       - traefik-net
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`api.${HOST}`, `www.api.${HOST}`)" # Hosts définis
       - "traefik.http.routers.api.entrypoints=web"
-      - "traefik.http.routers.api.rule=Host(`api.${HOST}`, `www.api.${HOST}`)" # Hôte défini
       - "traefik.http.services.api.loadbalancer.server.port=8055"
-      - "traefik.http.routers.api.tls=false"
       - "traefik.docker.network=traefik-net"
+
 networks:
   traefik-net:
     name: traefik-net

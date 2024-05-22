@@ -24,4 +24,4 @@ entryPoints:
     address: ":80"
 
 core:
-  defaultRuleSyntax: v2
+  defaultRuleSyntax: v3
