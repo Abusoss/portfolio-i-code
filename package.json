@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "next dev",
-    "dev --turbo": "next dev --turbo",
-    "build": "next build",
-    "prod": "next start",
+    "start": "APP_ENV=development next dev",
+    "dev --turbo": "APP_ENV=development next dev --turbo",
+    "build": "APP_ENV=production BUILD_STANDALONE=true next build",
+    "prod": "APP_ENV=production BUILD_STANDALONE=false next start",
     "lint": "next lint"
   },
   "dependencies": {
