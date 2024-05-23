@@ -2,15 +2,15 @@
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } from 'next/constants.js';
 
 const ContentSecurityPolicyStrict = `
-  default-src 'self' https://api.daily.dev/ *.cdninstagram.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  connect-src 'self' http://*.i-code.xyz/ https://*.i-code.xyz/;
-  frame-src 'self' https://www.youtube.com/ https://youtu.be/;
-  script-src 'self' 'unsafe-inline' use.typekit.net/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  img-src 'self' blob: data: https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/ https://media2.giphy.com/;
-  child-src 'self' https://www.youtube.com/ https://youtu.be/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  frame-ancestors 'self' https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  style-src 'unsafe-inline' p.typekit.net/ http://localhost:3000/ use.typekit.net http://*.i-code.xyz/ https://*.i-code.xyz/;
-  font-src 'self' data: use.typekit.net/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  default-src 'self' https://api.daily.dev/ *.cdninstagram.com/ http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  connect-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  frame-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://www.youtube.com/ https://youtu.be/;
+  script-src 'self' 'unsafe-inline' use.typekit.net/ http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  img-src 'self' blob: data: http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/ https://media2.giphy.com/;
+  child-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://www.youtube.com/ https://youtu.be/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  frame-ancestors 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
+  style-src 'unsafe-inline' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ p.typekit.net/ http://localhost:3000/ use.typekit.net http://*.i-code.xyz/ https://*.i-code.xyz/;
+  font-src 'self' data: use.typekit.net/ http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
 `;
 
 const ContentSecurityPolicyLoose = ``;
