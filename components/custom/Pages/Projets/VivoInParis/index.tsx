@@ -217,7 +217,7 @@ nous réexpédions où que vous soyez !"/>
         <h3 className="text-2xl font-medium mt-6 mb-2">Installation</h3>
         <ol className="grid gap-y-10 list-decimal list-inside pl-5 space-y-1">
           <li >Cloner le dépôt :
-            <pre className="bg-black dark:bg-gray-100 p-2 rounded max-w-[320px] mt-5">
+            <pre className="bg-black dark:bg-gray-100 p-2 rounded w-[320px] min-w-fit mt-5">
               <code className="text-white dark:text-black">git clone https://github.com/Abusoss/vivo_in_paris.git</code>
             </pre>
           </li>
