@@ -1,16 +1,7 @@
 "use client"
-import { Button } from "@/components/ui/button";
 import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
+   Form
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { getGif } from "@/lib/data";
 import { Gif } from "@giphy/react-components";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -52,7 +43,7 @@ export function ProfileForm() {
       transition={{ duration: 0.6, delay: 0.5 }}
       viewport={{ once: true }} className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr]  2xl:grid-cols-[0.625fr,1.75fr,0.625fr] w-full bg-background relative justify-items-center place-content-center h-[100vh]">
             <div className="col-start-2 grid grid-flow-col gap-5 place-content-evenly w-full">
-               <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-8">
+               {/* <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-8">
                   <FormField
                      control={form.control}
                      name="email"
@@ -83,10 +74,10 @@ export function ProfileForm() {
                      )}
                   />
                   <Button type="submit">Envoyer</Button>
-               </form>
+               </form> */}
                <div className="grid grid-flow-row place-content-center gap-4">
                   <p>
-                     Ou contactez moi directement à l&apos;adresse suivante: <br />
+                     Contactez moi directement à l'adresse suivante: <br />
                   </p>
                   <div className="relative">
                      <a className="peer hover:block underline" href="mailto:m.loulou9311@gmail.com">m.loulou9311@gmail.com</a>

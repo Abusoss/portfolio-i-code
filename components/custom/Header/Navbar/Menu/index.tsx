@@ -5,13 +5,13 @@ import * as React from "react"
 
 import StaticLogo from "@/components/custom/Logo/StaticLogo"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 
@@ -20,13 +20,13 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Vivo in Paris",
     href: "/projets/vivo-in-paris",
     description:
-      "vivoinparis.com, création site web de l&apos;entreprise où je suis alternant / stagiaire.",
+      "vivoinparis.com, création site web de l'entreprise où je suis alternant / stagiaire.",
   },
   {
     title: "Orange",
     href: "/projets/orange",
     description:
-      "Client léger du projet Orange pour l&apos;examen.",
+      "Client léger du projet Orange pour l'examen.",
   },
   {
     title: "WordPress",
@@ -37,7 +37,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Machine virtuelle et GLPI",
     href: "/projets/machine-virtuelle-et-glpi",
-    description: "Mis en place d&apos;une machine virtuelle à l&apos;aide de VMware et installation de GLPI.",
+    description: "Mis en place d'une machine virtuelle à l'aide de VMware et installation de GLPI.",
   },
   {
     title: "Snake",
@@ -49,7 +49,7 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Switchiru",
     href: "/projets/switchiru",
     description:
-      "Application en fond capable de detecter le changement de focus et l&apos;application active. Permettant ainsi de changer l&apos;affichage de TouchPortal.",
+      "Application en fond capable de detecter le changement de focus et l'application active. Permettant ainsi de changer l'affichage de TouchPortal.",
   },
 ]
 const Menu = () => {

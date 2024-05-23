@@ -10,7 +10,7 @@ export const VeilleTech = () => {
    const containerRef = useRef<HTMLDivElement>(null);
    return (
       <div className="grid grid-flow-row gap-y-20">
-         <Title Title="Ma veille technologique !" Subtitle="Découvrez comment je reste à la pointe de l&apos;innovation" />
+         <Title Title="Ma veille technologique !" Subtitle="Découvrez comment je reste à la pointe de l'innovation" />
          {/* Section Formation AWS et DevOps */}
          <motion.section
             className="container px-4 md:px-6"
@@ -27,7 +27,7 @@ export const VeilleTech = () => {
                      Améliorez mes compétences en cloud et en DevOps
                   </h2>
                   <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                     Je me forme régulièrement sur les outils AWS à travers AWS Educate, où je développe mes compétences en programmation et DevOps en utilisant exclusivement les technologies AWS. Cette formation complète mes compétences pratiques avec des outils comme EBS, Docker, et Ansible, me permettant d&apos;intégrer ces technologies dans mon environnement de travail quotidien chez Vivo in Paris. Cette démarche renforce ma compréhension des infrastructures cloud et améliore ma capacité à gérer des projets complexes sur AWS, assurant ainsi une mise en œuvre efficace et à la pointe de la technologie pour nos services.
+                     Je me forme régulièrement sur les outils AWS à travers AWS Educate, où je développe mes compétences en programmation et DevOps en utilisant exclusivement les technologies AWS. Cette formation complète mes compétences pratiques avec des outils comme EBS, Docker, et Ansible, me permettant d'intégrer ces technologies dans mon environnement de travail quotidien chez Vivo in Paris. Cette démarche renforce ma compréhension des infrastructures cloud et améliore ma capacité à gérer des projets complexes sur AWS, assurant ainsi une mise en œuvre efficace et à la pointe de la technologie pour nos services.
                   </p>
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
                      <Link
@@ -175,7 +175,7 @@ export const VeilleTech = () => {
                   <div className="w-fit rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                      Communautés et Apprentissage
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Découvrez mes sources d&apos;apprentissage</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Découvrez mes sources d'apprentissage</h2>
                   <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                      Je reste constamment informé des dernières tendances en développement web en suivant plusieurs sources fiables et en participant à des communautés dynamiques.
                   </p>
@@ -248,9 +248,9 @@ export const VeilleTech = () => {
             viewport={{ once: true }} >
             <div className="grid gap-y-10 place-items-center text-center">
                <div className="w-fit rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">Conclusion</div>
-               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Restez à la pointe de l&apos;innovation</h2>
+               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Restez à la pointe de l'innovation</h2>
                <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Cette veille technologique me permet d&apos;adapter rapidement mes compétences aux nouvelles technologies et
+                  Cette veille technologique me permet d'adapter rapidement mes compétences aux nouvelles technologies et
                   garantit que mon travail chez Vivo in Paris reste innovant et compétitif. Je propose ainsi des solutions qui
                   optimisent notre efficacité et renforcent notre position sur le marché.
                </p>

@@ -11,7 +11,7 @@ const ThreeDCardDemo = ( {containerRef}:{containerRef: RefObject<HTMLDivElement>
          <CardContainer className="inter-var" containerRef={containerRef}>
             <Link target="__blank"
                className="rounded-xl text-xs font-normal dark:text-white" href="https://app.daily.dev/abusoss">
-               <Image src="https://api.daily.dev/devcards/v2/UaJ9v6LdV1D2W56oRyKER.png?type=default&r=y0z" width={356} height={0} alt="Mohamed Nadjib Loulou&apos;s Dev Card" className="w-full border-[1px] dark:border-transparent object-cover rounded-xl group-hover/card:shadow-xl" />
+               <Image src="https://api.daily.dev/devcards/v2/UaJ9v6LdV1D2W56oRyKER.png?type=default&r=y0z" width={356} height={0} alt="Mohamed Nadjib Loulou's Dev Card" className="w-full border-[1px] dark:border-transparent object-cover rounded-xl group-hover/card:shadow-xl" />
             </Link>
          </CardContainer>
       </div>

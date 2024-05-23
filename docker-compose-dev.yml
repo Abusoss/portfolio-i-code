@@ -27,7 +27,7 @@ services:
     build:
       context: ./directus
       dockerfile: Dockerfile
-    image: directus/directus:10.11.0
+    image: directus/directus:10.11.1
     env_file:
       - .env.local
     container_name: api
@@ -35,8 +35,9 @@ services:
     ports:
       - "8055:8055"
     environment:
+      HOST: "0.0.0.0"
       PORT: 8055
-      PUBLIC_URL: "http://api.${HOST}/"
+      PUBLIC_URL: "https://api.${HOST}/"
       DB_SSL: "true"
       RATE_LIMITER_ENABLED: false
       RATE_LIMITER_STORE: "memory"

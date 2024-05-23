@@ -1,5 +1,6 @@
 "use client"
 import { useWindowScroll } from '@uidotdev/usehooks';
+import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
 import { useRange } from '../Helpers/RangeConverter/RangeConverter';
 type Wrapper = 'p' | 'div' | 'span' | 'strong' | 'a' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b';
@@ -42,7 +43,7 @@ export default function MyLogo() {
     const sequence = [];
     sequence.push(TypeParams.startDelay);
     TypeParams.sequence.forEach((text, index) => {
-      if(index <= TypeParams.sequence.length - 1){
+      if (index <= TypeParams.sequence.length - 1) {
         sequence.push(text);
         sequence.push(TypeParams.betweenDelay);
       }
@@ -54,28 +55,30 @@ export default function MyLogo() {
     <div style={{
       transform: `scale(calc( 1 - ${iCodeScale}))`
     }} className={`origin-top-left justify-self-start w-fit text-xl min-w-[200px] font-fira `}>
-      <div className='grid rounded-lg dark:bg-transparent '>
-        <div style={{
-          paddingRight: `calc(1.25rem + ${wrapperTranslate}rem)`
-        }} className="grid relative w-full px-8 py-5 pt-7  min-w-[100px] gap-2">
-          <span style={{
-            transform: `translate3d(0px , ${symbolTranslate}px , 0px)`
-          }} className="absolute left-8 text-[#4ca5d4]">~</span>
+      <Link href="/" passHref>
+        <div className='grid rounded-lg dark:bg-transparent '>
           <div style={{
-            transform: `translate3d( ${iCodeTranslate}px , 0px , 0px)`
-          }} className='grid grid-flow-col grid-cols-[min-content,1fr] items-center justify-items-start'>
-            <span className="text-[#f84534] w-fit pr-4">{'=>'}</span>
-            <TypeAnimation
-              sequence={buildSequence()}
-              wrapper={TypeParams.wrapper}
-              deletionSpeed={TypeParams.deletionSpeed}
-              speed={TypeParams.speed}
-              className=' text-3xl h-[2.25rem] w-full [word-spacing:-15px;] text-[var(--background)] dark:text-[#59f687] text-left'
-              repeat={TypeParams.repeat}
-            />
+            paddingRight: `calc(1.25rem + ${wrapperTranslate}rem)`
+          }} className="grid relative w-full px-8 py-5 pt-7  min-w-[100px] gap-2">
+            <span style={{
+              transform: `translate3d(0px , ${symbolTranslate}px , 0px)`
+            }} className="absolute left-8 text-[#4ca5d4]">~</span>
+            <div style={{
+              transform: `translate3d( ${iCodeTranslate}px , 0px , 0px)`
+            }} className='grid grid-flow-col grid-cols-[min-content,1fr] items-center justify-items-start'>
+              <span className="text-[#f84534] w-fit pr-4">{'=>'}</span>
+              <TypeAnimation
+                sequence={buildSequence()}
+                wrapper={TypeParams.wrapper}
+                deletionSpeed={TypeParams.deletionSpeed}
+                speed={TypeParams.speed}
+                className=' text-3xl h-[2.25rem] w-full [word-spacing:-15px;] text-[var(--background)] dark:text-[#59f687] text-left'
+                repeat={TypeParams.repeat}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

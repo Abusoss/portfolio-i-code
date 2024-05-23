@@ -30,7 +30,7 @@ function Hero<T>(props: T & HeroType) {
       endDelay: 10000,
       sequence: [
          // Same substring at the start will only be typed out once, initially
-         "Salut, moi c&apos;est",
+         "Salut, moi c'est",
          // wait 1s before replacing "design" with "code"
          'const JeSuis = () => {',
       ],
@@ -64,8 +64,8 @@ function Hero<T>(props: T & HeroType) {
             />
             <div className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-500 text-[var(--background)] dark:text-white">
                <p className="grid gap-5 w-fit">
-                  <span className="w-fit">{props.Hero_title}</span>
-                  <span className="w-fit">{props.Hero_description}</span>
+                  <span className="w-fit">Loulou Mohamed Nadjib.</span>
+                  <span className="w-fit">Un Full Stack Web Développer.</span>
                </p>
             </div>
          </div>

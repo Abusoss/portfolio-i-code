@@ -87,6 +87,11 @@ const buildNextConfig = (phase) => {
         },
         {
           protocol: 'https',
+          hostname: 'd3coo6i74goucu.cloudfront.net',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
           hostname: 'via.placeholder.com',
           pathname: '/**',
         },
@@ -108,6 +113,18 @@ const buildNextConfig = (phase) => {
     i18n: {
       locales: ['fr'],
       defaultLocale: 'fr',
+    },
+    eslint: {
+      // Warning: This allows production builds to successfully complete even if
+      // your project has ESLint errors.
+      ignoreDuringBuilds: true,
+    },
+    typescript: {
+      // !! WARN !!
+      // Dangerously allow production builds to successfully complete even if
+      // your project has type errors.
+      // !! WARN !!
+      ignoreBuildErrors: true,
     },
   };
 

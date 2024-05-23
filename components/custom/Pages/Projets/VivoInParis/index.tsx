@@ -14,7 +14,7 @@ export const VivoInParis = () => {
     {
       title: 'Inscription et Authentification des Utilisateurs',
       points: [
-        "Les utilisateurs peuvent s&apos;inscrire et se connecter en utilisant un email et un mot de passe.",
+        "Les utilisateurs peuvent s'inscrire et se connecter en utilisant un email et un mot de passe.",
         "Option de connexion via les réseaux sociaux.",
       ],
     },
@@ -22,13 +22,13 @@ export const VivoInParis = () => {
       title: 'Service de Shopping Personnalisé',
       points: [
         "Les utilisateurs peuvent soumettre des URL des produits souhaités.",
-        "L&apos;équipe de Vivo in Paris se charge de l&apos;achat au nom de l&apos;utilisateur.",
+        "L'équipe de Vivo in Paris se charge de l'achat au nom de l'utilisateur.",
       ],
     },
     {
       title: 'Service d\'Estimation',
       points: [
-        "Les utilisateurs peuvent demander une estimation des coûts d&apos;expédition en fournissant les URL des produits.",
+        "Les utilisateurs peuvent demander une estimation des coûts d'expédition en fournissant les URL des produits.",
         "Le système génère un devis détaillé.",
       ],
     },
@@ -42,13 +42,13 @@ export const VivoInParis = () => {
     {
       title: 'Reconditionnement de Colis',
       points: [
-        "Plusieurs commandes sont regroupées en un seul envoi pour réduire les coûts d&apos;expédition.",
+        "Plusieurs commandes sont regroupées en un seul envoi pour réduire les coûts d'expédition.",
       ],
     },
     {
       title: 'Expédition Internationale',
       points: [
-        "Options d&apos;expédition sécurisées et suivies.",
+        "Options d'expédition sécurisées et suivies.",
         "Gestion des droits de douane et des taxes.",
       ],
     },
@@ -92,7 +92,7 @@ export const VivoInParis = () => {
     {
       title: 'Fiabilité',
       points: [
-        "Haute disponibilité et temps d&apos;arrêt minimaux.",
+        "Haute disponibilité et temps d'arrêt minimaux.",
         "Processus de sauvegarde et de récupération robustes.",
       ],
     },
@@ -106,7 +106,7 @@ nous réexpédions où que vous soyez !"/>
             transition={{ duration: 0.6 }}
             viewport={{ once: true }} className="grid place-items-center w-full h-[400px] relative">
             <Image
-               src="https://via.placeholder.com/1000"
+               src="https://d3coo6i74goucu.cloudfront.net/7ed624dc-6186-441d-a631-e9092471cfd3.jpg?format=auto&width=1600"
                className='object-cover'
                alt="BTS SIO"
                fill
@@ -118,9 +118,9 @@ nous réexpédions où que vous soyez !"/>
             viewport={{ once: true }}>
         <h2 className="text-3xl font-semibold mb-4">Aperçu du Projet</h2>
         <p>
-          Vivo in Paris est un service qui facilite l&apos;achat de produits en France et leur expédition vers l&apos;international.
-          Il offre des services de shopping personnalisé, de reconditionnement des colis et d&apos;expédition à l&apos;internationale,
-          simplifiant ainsi l&apos;achat de produits français et européens pour les clients du monde entier.
+          Vivo in Paris est un service qui facilite l'achat de produits en France et leur expédition vers l'international.
+          Il offre des services de shopping personnalisé, de reconditionnement des colis et d'expédition à l'internationale,
+          simplifiant ainsi l'achat de produits français et européens pour les clients du monde entier.
         </p>
       </motion.section>
 
@@ -130,7 +130,7 @@ nous réexpédions où que vous soyez !"/>
             viewport={{ once: true }}>
         <h2 className="text-3xl font-semibold mb-4">Spécification du Projet</h2>
         <h3 className="text-2xl font-medium mb-2">Objectif</h3>
-        <p>Créer une plateforme conviviale qui simplifie l&apos;expérience d&apos;achat sur les boutiques en ligne européennes pour les clients internationaux.</p>
+        <p>Créer une plateforme conviviale qui simplifie l'expérience d'achat sur les boutiques en ligne européennes pour les clients internationaux.</p>
         <h3 className="text-2xl font-medium mt-6 mb-2">Public Cible</h3>
         <p>Acheteurs internationaux souhaitant acheter des articles sur des sites de commerce électronique français et européens mais rencontrant des difficultés liées aux méthodes de paiement, à la livraison et aux barrières linguistiques.</p>
       </motion.section>
@@ -249,7 +249,7 @@ nous réexpédions où que vous soyez !"/>
               </code>
             </pre>
           </li>
-          <li>Ouvrir votre navigateur et naviguer vers <a href="http://localhost:3000" className="text-blue-500">http://localhost:3000</a> pour l&apos;application Next.js et <a href="http://localhost:8055" className="text-blue-500">http://localhost:8055</a> pour Directus.</li>
+          <li>Ouvrir votre navigateur et naviguer vers <a href="http://localhost:3000" className="text-blue-500">http://localhost:3000</a> pour l'application Next.js et <a href="http://localhost:8055" className="text-blue-500">http://localhost:8055</a> pour Directus.</li>
         </ol>
       </motion.section>
 
@@ -260,7 +260,7 @@ nous réexpédions où que vous soyez !"/>
         <h2 className="text-3xl font-semibold mb-4">Tâches</h2>
         <ul className="list-disc list-inside pl-5 space-y-1">
             <li>System de connexion(fini) (Post) --&gt; Apres traduction</li>
-          <li>System d&apos;inscription(fini) (Mutation) --&gt; Apres traduction</li>
+          <li>System d'inscription(fini) (Mutation) --&gt; Apres traduction</li>
           <li>Portail utilisateur(presque fini) --&gt; Apres traduction</li>
           <li>Ajouter Sizes au Image/future dans le slider modal</li>
           <li>dynamic head page by page in component head // use assetsUrl for images</li>
@@ -271,7 +271,7 @@ nous réexpédions où que vous soyez !"/>
           <li>veille sur Prompt&</li>
           <li>update nextjs to nextjs 14.1.1</li>
           <li>nextjs 14 app dir + react query 5</li>
-          <li>e-commerce and aide-a-l&apos;achat/Estimation transaction</li>
+          <li>e-commerce and aide-a-l'achat/Estimation transaction</li>
           <li>implements follower system or something like that</li>
           <li>passer les mails directus sur mailjet</li>
           <li>continue in the draft api page make the type for Article_by_version_content with the content of the article</li>
