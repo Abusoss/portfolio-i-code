@@ -36,7 +36,7 @@ services:
     ports:
       - "8055:8055"
     environment:
-      HOST: 0.0.0.0
+      # HOST: 0.0.0.0
       PORT: 8055
       PUBLIC_URL: "http://Directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/"
       DB_SSL: "true"
