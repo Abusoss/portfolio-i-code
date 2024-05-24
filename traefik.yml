@@ -36,3 +36,34 @@ certificatesResolvers:
       storage: "/letsencrypt/acme.json"
       httpChallenge:
         entryPoint: web
+
+http:
+  routers:
+    api-router:
+      rule: "Host(`api.i-code.xyz`) || Host(`www.api.i-code.xyz`)"
+      entryPoints:
+        - web
+        - websecure
+      service: api-service
+      tls:
+        certResolver: letsencrypt
+
+    router-router:
+      rule: "Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
+      entryPoints:
+        - web
+        - websecure
+      service: router-service
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    api-service:
+      loadBalancer:
+        servers:
+          - url: "http://api:8055"
+
+    router-service:
+      loadBalancer:
+        servers:
+          - url: "http://router:80"
