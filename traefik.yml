@@ -54,7 +54,7 @@ http:
       entryPoints:
         - web
         - websecure
-      service: router-service
+      service: router@internal
       tls:
         certResolver: letsencrypt
 
