@@ -1,5 +1,6 @@
 api:
   dashboard: true
+  insecure: false
 
 entryPoints:
   web:
@@ -66,4 +67,4 @@ http:
     router-service:
       loadBalancer:
         servers:
-          - url: "http://router:80"
+          - url: "http://router:8080"
