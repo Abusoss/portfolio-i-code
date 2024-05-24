@@ -49,12 +49,12 @@ http:
       tls:
         certResolver: letsencrypt
 
-    router-router:
+    router-dashboard:
       rule: "Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
       entryPoints:
         - web
         - websecure
-      service: router@internal
+      service: api@internal  # Correctly point to Traefik internal API service
       tls:
         certResolver: letsencrypt
 

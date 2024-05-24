@@ -29,8 +29,11 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 8055
-      PUBLIC_URL: "api.i-code.xyz"
+      PUBLIC_URL: "https://api.i-code.xyz"
       DB_SSL: "true"
+      SSL_ENABLED: "true"
+      SSL_CERT_FILE: /letsencrypt/live/api.i-code.xyz/fullchain.pem
+      SSL_KEY_FILE: /letsencrypt/live/api.i-code.xyz/privkey.pem
       RATE_LIMITER_ENABLED: "false"
       RATE_LIMITER_STORE: "memory"
       RATE_LIMITER_POINTS: 25
