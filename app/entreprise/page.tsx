@@ -1,5 +1,5 @@
 import { Entreprise } from "@/components/custom/Pages/Entreprise";
-import { getGif, getHome } from "@/lib/data";
+import { getHome } from "@/lib/data";
 import {
   HydrationBoundary,
   QueryClient,
@@ -12,10 +12,7 @@ export default async function Page() {
     queryKey: ['Home'],
     queryFn: getHome,
   })
-  await queryClient.prefetchQuery({
-    queryKey: ['Gif'],
-    queryFn: () => getGif({ apiKey: "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh", id: "TfbqwmizD6vTrrhJuL" }),
-  })
+
   // apiKey : "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh"
   // id : "fpXxIjftmkk9y"
   return (

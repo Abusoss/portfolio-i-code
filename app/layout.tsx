@@ -5,6 +5,8 @@ import { Fira_Code, Inter } from "next/font/google";
 // import { Client, Provider, cacheExchange, fetchExchange } from 'urql';
 import TanstackProvider from "@/Providers/TanstackProvider";
 import { Footer } from "@/components/custom/Footer";
+import { getGif } from "@/lib/data";
+import { QueryClient } from "@tanstack/react-query";
 import { ThemeProvider } from "../Providers/ThemeProvider";
 import Header from "../components/custom/Header";
 import "./globals.css";
@@ -27,11 +29,16 @@ export const metadata: Metadata = {
 //   //  },
 // });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ['Gif'],
+    queryFn: () => getGif({ apiKey: "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh", id: "TfbqwmizD6vTrrhJuL" }),
+  })
   return (
     <html lang="en" className={cn(
       "min-h-screen bg-background",

@@ -1,9 +1,9 @@
 import { BTS } from "@/components/custom/Pages/BTS";
-import { getGif, getHome } from "@/lib/data";
+import { getHome } from "@/lib/data";
 import {
-   HydrationBoundary,
-   QueryClient,
-   dehydrate
+    HydrationBoundary,
+    QueryClient,
+    dehydrate
 } from '@tanstack/react-query';
 
 export default async function Page() {
@@ -12,10 +12,7 @@ export default async function Page() {
     queryKey: ['Home'],
     queryFn: getHome,
   })
-  await queryClient.prefetchQuery({
-    queryKey: ['Gif'],
-    queryFn: () => getGif({ apiKey: "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh", id: "TfbqwmizD6vTrrhJuL" }),
-  })
+
   // apiKey : "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh"
   // id : "fpXxIjftmkk9y"
   return (

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import withBundleAnalyzer from '@next/bundle-analyzer';
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } from 'next/constants.js';
 
 const ContentSecurityPolicyStrict = `
@@ -61,6 +62,7 @@ const buildNextConfig = (phase) => {
   console.log(process.env.BUILD_STANDALONE);
 
   const nextConfig = {
+    staticPageGenerationTimeout: 120000,
     reactStrictMode: true,
     images: {
       remotePatterns: [
@@ -78,6 +80,11 @@ const buildNextConfig = (phase) => {
         {
           protocol: 'http',
           hostname: '*.i-code.xyz',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: '*.giphy.com',
           pathname: '/**',
         },
         {
@@ -127,8 +134,9 @@ const buildNextConfig = (phase) => {
       ignoreBuildErrors: true,
     },
   };
-
-  return nextConfig;
+  return withBundleAnalyzer({
+    enabled: process.env.ANALYZE === 'true',
+  })(nextConfig);
 };
 
 export default buildNextConfig;
