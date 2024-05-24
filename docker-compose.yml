@@ -7,7 +7,7 @@ services:
     container_name: "router"
     ports:
       - "80:80"
-      - "8080"
+      - "443:443" # Add port 443 for HTTPS
     volumes:
       - "./traefik.yml:/etc/traefik/traefik.yml"
       - "/letsencrypt:/letsencrypt"
@@ -16,13 +16,6 @@ services:
     networks:
       - traefik-net
     restart: always
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=PathPrefix(`/dashboard`)"
-      - "traefik.http.routers.dashboard.entrypoints=web"
-      - "traefik.http.routers.dashboard.service=api@internal"
-      - "traefik.http.routers.dashboard.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth.users=router:${BASIC_AUTH_PASSWORD}"
 
   api:
     build:
@@ -36,9 +29,9 @@ services:
     ports:
       - "8055:8055"
     environment:
-      # HOST: 0.0.0.0
+      HOST: 0.0.0.0
       PORT: 8055
-      PUBLIC_URL: "http://Directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/"
+      PUBLIC_URL: "api.i-code.xyz"
       DB_SSL: "true"
       RATE_LIMITER_ENABLED: "false"
       RATE_LIMITER_STORE: "memory"
@@ -70,22 +63,26 @@ services:
       CORS_CREDENTIALS: "true"
       CORS_MAX_AGE: 18000
       EXTENSIONS_PATH: "./extensions"
-      EXTENSIONS_AUTO_RELOAD: "false"
+      EXTENSIONS_AUTO_RELOAD: "true"
       EMAIL_ALLOW_GUEST_SEND: "false"
       EMAIL_VERIFY_SETUP: "true"
       TELEMETRY: "false"
       GRAPHQL_INTROSPECTION: "true"
-      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "http://Directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/, http://Directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "i-code.xyz"
     depends_on:
       - router
     networks:
       - traefik-net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`Directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com`)" # Hosts définis
-      - "traefik.http.routers.api.entrypoints=web"
+      - "traefik.http.routers.api.rule=Host(`api.i-code.xyz`)"
+      - "traefik.http.routers.api.entrypoints=web,websecure"
       - "traefik.http.services.api.loadbalancer.server.port=8055"
       - "traefik.docker.network=traefik-net"
+      - "traefik.http.routers.api.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.api-redirect-www.redirectregex.regex=^http://www\\.api\\.i-code\\.xyz/(.*)"
+      - "traefik.http.middlewares.api-redirect-www.redirectregex.replacement=https://api.i-code.xyz/$${1}"
+      - "traefik.http.middlewares.api-redirect-www.redirectregex.permanent=true"
 
 networks:
   traefik-net:

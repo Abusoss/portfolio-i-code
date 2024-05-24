@@ -4,6 +4,11 @@ api:
 entryPoints:
   web:
     address: ":80"
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: letsencrypt
 
 log:
   level: DEBUG
@@ -24,5 +29,10 @@ providers:
 serversTransport:
   insecureSkipVerify: true
 
-core:
-  defaultRuleSyntax: v2
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: m.loulou9311@gmail.com
+      storage: "/letsencrypt/acme.json"
+      httpChallenge:
+        entryPoint: web
