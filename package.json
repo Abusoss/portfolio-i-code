@@ -59,5 +59,9 @@
     "typescript": "^5"
   },
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "files": [
+    "**/*",
+    "!directus"
+  ]
 }
