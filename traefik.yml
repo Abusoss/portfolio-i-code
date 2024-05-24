@@ -49,12 +49,12 @@ http:
       tls:
         certResolver: letsencrypt
 
-    router-dashboard:
+    router-router:
       rule: "Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
       entryPoints:
         - web
         - websecure
-      service: api@internal  # Correctly point to Traefik internal API service
+      service: api@internal # Correctly point to Traefik internal API service
       tls:
         certResolver: letsencrypt
 
@@ -63,8 +63,3 @@ http:
       loadBalancer:
         servers:
           - url: "http://api:8055"
-
-    router-service:
-      loadBalancer:
-        servers:
-          - url: "http://router:8080"

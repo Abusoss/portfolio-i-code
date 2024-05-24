@@ -77,6 +77,11 @@ services:
 
 volumes:
   letsencrypt:
+    driver_opts:
+      type: "none"
+      device: "/var/lib/docker/volumes/letsencrypt"
+      o: "bind"
+
 networks:
   traefik-net:
     name: traefik-net
