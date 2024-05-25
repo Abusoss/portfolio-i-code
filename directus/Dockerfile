@@ -1,9 +1,8 @@
 FROM directus/directus:10.11.0
-# COPY ./extensions /directus/extensions
-# COPY ./eu-west-3-bundle.pem /directus/
 
-
+# Switch to root user
 USER root
+
 # Install curl using apk (Alpine package manager)
 RUN apk update && apk add curl
 
@@ -20,5 +19,8 @@ ENV PATH="/usr/local/bin:${PATH}"
 # Verify pnpm is available in the PATH
 RUN /usr/local/bin/pnpm --version
 
+# Switch to node user
 USER node
+
+# Install Directus extensions using pnpm
 RUN pnpm install directus-extension-wpslug-interface@^1.1.0 directus-extension-flexible-editor@^1.2.0 @directus/errors@^0.2.4
