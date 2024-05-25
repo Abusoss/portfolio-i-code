@@ -43,7 +43,6 @@ http:
     api-router:
       rule: "Host(`api.i-code.xyz`) || Host(`www.api.i-code.xyz`)"
       entryPoints:
-        - web
         - websecure
       service: api-service
       tls:
@@ -59,9 +58,8 @@ http:
     router-router:
       rule: "Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
       entryPoints:
-        - web
         - websecure
-      service: api@internal # Correctly point to Traefik internal API service
+      service: api@internal
       tls:
         certResolver: letsencrypt
 
