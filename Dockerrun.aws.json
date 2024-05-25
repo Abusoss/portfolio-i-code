@@ -1,7 +1,5 @@
 {
    "AWSEBDockerrunVersion": "3",
-   "containerDefinitions": [],
-   "executionRoleArn": "arn:aws:iam::471112938142:role/aws-elasticbeanstalk-ec2-role",
    "services": {
      "web": {
        "composeFile": "./docker-compose.yml"
