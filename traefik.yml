@@ -49,6 +49,13 @@ http:
       tls:
         certResolver: letsencrypt
 
+    acme-http:
+      rule: "PathPrefix(`/.well-known/acme-challenge/`)"
+      entryPoints:
+        - web
+      service: acme-http@internal
+      priority: 10000
+
     router-router:
       rule: "Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
       entryPoints:
