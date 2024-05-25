@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   router:
     image: traefik:v3.0
@@ -8,7 +7,7 @@ services:
       - "443:443"
     volumes:
       - "./traefik.yml:/etc/traefik/traefik.yml"
-      - "/var/lib/docker/volumes/letsencrypt:/letsencrypt"
+      - "letsencrypt:/letsencrypt"
       - "/var/log/eb-docker/containers/router:/log"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     networks:
@@ -77,6 +76,11 @@ services:
 
 volumes:
   letsencrypt:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/lib/docker/volumes/letsencrypt
 
 networks:
   traefik-net:
