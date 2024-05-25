@@ -3,8 +3,8 @@ FROM directus/directus:10.11.0
 # Switch to root user
 USER root
 
-# Install curl using apk (Alpine package manager)
-RUN apk update && apk add curl
+# Install necessary tools using apk (Alpine package manager)
+RUN apk update && apk add curl file
 
 # Download and install pnpm
 RUN curl -L https://github.com/pnpm/pnpm/releases/download/v8.8.0/pnpm-linux-x64 -o /usr/local/bin/pnpm && \
