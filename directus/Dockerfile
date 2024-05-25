@@ -5,7 +5,7 @@ FROM directus/directus:10.11.0
 
 USER root
 # Install curl and check connectivity
-RUN apt-get update && apt-get install -y curl && \
+RUN apk update && apk add curl && \
     curl -I https://registry.npmjs.org
 
 # Install pnpm manually using curl
