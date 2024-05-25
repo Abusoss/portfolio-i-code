@@ -73,6 +73,8 @@ services:
       - router
     networks:
       - traefik-net
+    volumes:
+      - /var/www/html/.well-known/acme-challenge/:/var/www/html/.well-known/acme-challenge/
 
 volumes:
   letsencrypt:
