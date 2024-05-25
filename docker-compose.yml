@@ -1,4 +1,3 @@
-# version: "3.8"
 services:
   router:
     image: traefik:v3.0
@@ -77,10 +76,11 @@ services:
 
 volumes:
   letsencrypt:
+    driver: local
     driver_opts:
-      type: "none"
-      device: "/var/lib/docker/volumes/letsencrypt"
-      o: "bind"
+      type: none
+      o: bind
+      device: /var/lib/docker/volumes/letsencrypt
 
 networks:
   traefik-net:
