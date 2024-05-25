@@ -12,13 +12,13 @@ RUN curl -L https://github.com/pnpm/pnpm/releases/download/v8.8.0/pnpm-linux-x64
     chmod +x /usr/local/bin/pnpm
 
 # Verify pnpm installation
-RUN ls -l /usr/local/bin && /usr/local/bin/pnpm --version
+RUN file /usr/local/bin/pnpm && ldd /usr/local/bin/pnpm || true
 
 # Set environment PATH
 ENV PATH="/usr/local/bin:${PATH}"
 
 # Verify pnpm is available in the PATH
-RUN pnpm --version
+RUN /usr/local/bin/pnpm --version
 
 USER node
 RUN pnpm install directus-extension-wpslug-interface@^1.1.0 directus-extension-flexible-editor@^1.2.0 @directus/errors@^0.2.4
