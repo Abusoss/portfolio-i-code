@@ -6,8 +6,8 @@ USER root
 # Install necessary tools using apk (Alpine package manager)
 RUN apk update && apk add --no-cache curl npm
 
-# Use npm to install pnpm
-RUN npm install -g pnpm
+# Install specific version of pnpm
+RUN npm install -g pnpm@9.0.6
 
 # Verify pnpm installation
 RUN pnpm --version
