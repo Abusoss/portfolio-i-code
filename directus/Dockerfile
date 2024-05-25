@@ -3,6 +3,7 @@ FROM directus/directus:10.11.0
 # COPY ./eu-west-3-bundle.pem /directus/
 
 USER root
+RUN npm install -g pnpm@8.8.0
 RUN corepack enable \
   && corepack prepare pnpm@8.8.0 --activate
 
