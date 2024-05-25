@@ -10,6 +10,7 @@ services:
       - "letsencrypt:/letsencrypt"
       - "/var/log/eb-docker/containers/router:/log"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./acme-challenge:/var/www/html/.well-known/acme-challenge"
     networks:
       - traefik-net
     restart: always
@@ -73,8 +74,6 @@ services:
       - router
     networks:
       - traefik-net
-    volumes:
-      - /var/www/html/.well-known/acme-challenge/:/var/www/html/.well-known/acme-challenge/
 
 volumes:
   letsencrypt:
@@ -83,6 +82,8 @@ volumes:
       type: none
       o: bind
       device: /var/lib/docker/volumes/letsencrypt
+  acme-challenge:
+    driver: local
 
 networks:
   traefik-net:
