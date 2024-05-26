@@ -18,7 +18,7 @@ services:
 
       # define basic auth middleware for dashboard
       - "traefik.http.middlewares.router-auth.basicauth.removeheader=true"
-      - "traefik.http.middlewares.router-auth.basicauth.users={BASIC_AUTH_PASSWORD}" # CHANGE PASSWORD!! (user: foobar / pwd: foobar)
+      - "traefik.http.middlewares.router-auth.basicauth.users=admin:{BASIC_AUTH_PASSWORD}" # CHANGE PASSWORD!! (user: foobar / pwd: foobar)
       # how to set a real password:
       # sudo apt-get install apache2-utils
       # htpasswd -Bnb username password | sed -e s/\\$/\\$\\$/g
