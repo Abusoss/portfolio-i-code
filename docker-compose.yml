@@ -6,14 +6,30 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "./traefik.yml:/etc/traefik/traefik.yml"
-      - "letsencrypt:/letsencrypt"
-      - "/var/log/eb-docker/containers/router:/log"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "./acme-challenge:/var/www/html/.well-known/acme-challenge"
+      - /var/run/docker.sock:/var/run/docker.sock:ro        # It's not recommended mounting the docker socket into a container -> see https://github.com/wollomatic/traefik2-hardened
+      - ./config/traefik.yaml:/etc/traefik/traefik.yaml:ro  # static traefik configuration
+      - ./config/dynamic.yaml:/etc/traefik/dynamic.yaml:ro  # dynamic traefik configuration
+      - ./config/acme.json:/etc/traefik/acme.json           # TLS certificate storage
     networks:
       - traefik-net
     restart: always
+    labels:
+      - "traefik.enable=true"
+
+      # define basic auth middleware for dashboard
+      - "traefik.http.middlewares.router-auth.basicauth.removeheader=true"
+      - "traefik.http.middlewares.router-auth.basicauth.users={BASIC_AUTH_PASSWORD}" # CHANGE PASSWORD!! (user: foobar / pwd: foobar)
+      # how to set a real password:
+      # sudo apt-get install apache2-utils
+      # htpasswd -Bnb username password | sed -e s/\\$/\\$\\$/g
+
+      # define traefik dashboard router and service
+      - "traefik.http.routers.router.rule=Host(`router.i-code.xyz`)" # change hostname!
+      - "traefik.http.routers.router.service=api@internal"
+      - "traefik.http.routers.router.tls.certresolver=tlschallenge"
+      - "traefik.http.routers.router.entrypoints=websecure"
+      - "traefik.http.routers.router.middlewares=router-auth, secHeaders@file, autodetectContenttype@file"
+      - "traefik.http.services.router.loadbalancer.server.port=8080"
 
   api:
     build:
@@ -74,11 +90,17 @@ services:
       - router
     networks:
       - traefik-net
-
-volumes:
-  letsencrypt:
-    driver: local
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.entrypoints=web-secure"
+      - "traefik.http.routers.api.rule=Host(`api.i-code.xyz`)" # change hostname!
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls.certresolver=tlschallenge"
+      - "traefik.http.routers.api.middlewares=secHeaders@file"
+      - "traefik.http.services.api.loadbalancer.server.port=80" # set port the container listenes to
 
 networks:
   traefik-net:
-    driver: bridge
+    external: true
+    name: traefik-net # create this network before running this deployment:
+# docker network create traefik-net
