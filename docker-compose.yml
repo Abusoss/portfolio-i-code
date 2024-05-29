@@ -101,6 +101,6 @@ services:
 
 networks:
   traefik-net:
-    external: true
+    # external: true
     name: traefik-net # create this network before running this deployment:
 # docker network create traefik-net
