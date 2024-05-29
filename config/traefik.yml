@@ -5,13 +5,13 @@ api:
 entryPoints:
   web:
     address: ':80' # http
-    http:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
-  websecure:
-    address: ':443' # https
+    # http:
+      # redirections:
+      #   entryPoint:
+      #     to: websecure
+      #     scheme: https
+  # websecure:
+    # address: ':443' # https
 
 log:
   level: DEBUG
@@ -43,13 +43,13 @@ providers:
 #       httpChallenge:
 #         entryPoint: web
 
-certificatesResolvers:
-  tlschallenge:
-    acme:
-      caServer: https://acme-staging-v02.api.letsencrypt.org/directory # IMPORTANT: uncomment this line to get production ready certificates. After this, clear acme.json file.
-      email: m.loulou9311@gmail.com
-      storage: /etc/traefik/acme.json # chmod 600 this file on the host system
-      tlsChallenge: {}
+# certificatesResolvers:
+#   tlschallenge:
+#     acme:
+#       caServer: https://acme-staging-v02.api.letsencrypt.org/directory # IMPORTANT: uncomment this line to get production ready certificates. After this, clear acme.json file.
+#       email: m.loulou9311@gmail.com
+#       storage: /etc/traefik/acme.json # chmod 600 this file on the host system
+#       tlsChallenge: {}
 global:
   checkNewVersion: true
   sendAnonymousUsage: false # disable this if you don't want to send anonymous usage data to traefik
