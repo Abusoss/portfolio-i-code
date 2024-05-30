@@ -5,9 +5,10 @@ services:
     ports:
       - "80:80"
       - "8080"
-      # - "443:443"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro        # It's not recommended mounting the docker socket into a container -> see https://github.com/wollomatic/traefik2-hardened
+      - ./letsencrypt:/letsencrypt
       - ./config/traefik.yml:/etc/traefik/traefik.yml:ro  # static traefik configuration
       - ./config/dynamic.yml:/etc/traefik/dynamic.yml:ro  # dynamic traefik configuration
       # - ./config/acme.json:/etc/traefik/acme.json           # TLS certificate storage
@@ -94,6 +95,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.api.entrypoints=web"
       - "traefik.http.routers.api.rule=Host(`api.i-code.xyz`) || Host(`www.api.i-code.xyz`)"
+      - "traefik.http.routers.api.tls.certresolver=certificatesResolvers"
+      - "traefik.http.routers.api.entrypoints=websecure"
       # - "traefik.http.routers.api.tls=true"
       # - "traefik.http.routers.api.tls.certresolver=tlschallenge"
       - "traefik.http.services.api.loadbalancer.passhostheader=true"
