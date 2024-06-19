@@ -21,7 +21,7 @@ services:
       - ./letsencrypt:/letsencrypt
       - ./config/traefik.yml:/etc/traefik/traefik.yml:ro  # static traefik configuration
       - ./config/dynamic.yml:/etc/traefik/dynamic.yml:ro  # dynamic traefik configuration
-      # - ./config/acme.json:/etc/traefik/acme.json           # TLS certificate storage
+      - ./config/acme.json:/etc/traefik/acme.json           # TLS certificate storage
     networks:
       - traefik-net
     restart: always
