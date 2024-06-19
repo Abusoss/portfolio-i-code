@@ -29,7 +29,7 @@ services:
       - "traefik.http.routers.router.rule=Host(`router.i-code.xyz`) || Host(`www.router.i-code.xyz`)"
       - "traefik.http.routers.router.service=api@internal"
       # - "traefik.http.routers.router.tls.certresolver=tlschallenge"
-      - "traefik.http.routers.router.entrypoints=web"
+      - "traefik.http.routers.router.entrypoints=websecure"
       - "traefik.http.routers.router.middlewares=router-auth"
 
   api:
@@ -93,9 +93,8 @@ services:
       - traefik-net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.entrypoints=web"
       - "traefik.http.routers.api.rule=Host(`api.i-code.xyz`) || Host(`www.api.i-code.xyz`)"
-      - "traefik.http.routers.api.tls.certresolver=certificatesResolvers"
+      # - "traefik.http.routers.api.tls.certresolver=certificatesResolvers"
       - "traefik.http.routers.api.entrypoints=websecure"
       # - "traefik.http.routers.api.tls=true"
       # - "traefik.http.routers.api.tls.certresolver=tlschallenge"
