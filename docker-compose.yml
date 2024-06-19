@@ -6,6 +6,15 @@ services:
       - "80:80"
       - "8080"
       - "443:443"
+    command:
+      - "--log.level=DEBUG"
+      - "--log.filePath=log/traefik.log"
+      - "--accesslog=true"
+      - "--accesslog.fields.defaultmode=keep"
+      - "--accesslog.format=json"
+      - "--accesslog.fields.headers.defaultmode=keep"
+      - "--accesslog.filepath=log/access.json"
+      - "--accesslog.bufferingsize=100"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro        # It's not recommended mounting the docker socket into a container -> see https://github.com/wollomatic/traefik2-hardened
       - ./letsencrypt:/letsencrypt

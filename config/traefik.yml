@@ -13,15 +13,6 @@ entryPoints:
   websecure:
     address: ':443' # https
 
-log:
-  level: DEBUG
-  filePath: "/log/traefik.log"
-  format: common
-
-accessLog:
-  filePath: "/log/access.json"
-  format: json
-
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
