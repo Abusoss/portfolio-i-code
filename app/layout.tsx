@@ -7,6 +7,7 @@ import TanstackProvider from "@/Providers/TanstackProvider";
 import { Footer } from "@/components/custom/Footer";
 import { getGif } from "@/lib/data";
 import { QueryClient } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "../Providers/ThemeProvider";
 import Header from "../components/custom/Header";
 import "./globals.css";
@@ -46,6 +47,7 @@ export default async function RootLayout({
       fira_code.className
     )}>
       <body className="font-inter relative antialiased">
+        <Analytics />
         <TanstackProvider>
           <ThemeProvider
             attribute="class"
