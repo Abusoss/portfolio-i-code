@@ -35,8 +35,8 @@ export function ProfileForm() {
       <motion.div initial={{ opacity: 0, x: 50 }}
          whileInView={{ opacity: 1, x: 0 }}
          transition={{ duration: 0.6, delay: 0.5 }}
-         viewport={{ once: true }} className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr]  2xl:grid-cols-[0.625fr,1.75fr,0.625fr] w-full bg-background relative justify-items-center place-content-center h-[100vh]">
-         <div className="col-start-2 grid grid-flow-col gap-5 place-content-evenly w-full">
+         viewport={{ once: true }} className="grid grid-flow-row grid-cols-1 md:grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr]  2xl:grid-cols-[0.625fr,1.75fr,0.625fr] w-full  relative justify-items-center place-content-center h-fit md:h-[100vh]">
+         <div className="md:col-start-2 grid grid-flow-col gap-5 place-content-evenly w-full text-center md:text-left">
             {/* <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-8">
                   <FormField
                      control={form.control}

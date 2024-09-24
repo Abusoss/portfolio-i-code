@@ -1,6 +1,7 @@
 "use client"
 import { useWindowScroll } from '@uidotdev/usehooks';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { useRange } from '../Helpers/RangeConverter/RangeConverter';
 type Wrapper = 'p' | 'div' | 'span' | 'strong' | 'a' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b';
@@ -23,6 +24,23 @@ export default function MyLogo() {
   const symbolTranslate = useRange(y, 0, 75, 0, 32);
   const wrapperTranslate = useRange(y, 0, 75, 0, 2.5);
   const iCodeScale = useRange(y, 0, 75, 0, 0.2);
+
+  // Ajoutez ceci pour gérer la responsivité
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Ajustez la largeur selon vos besoins
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const TypeParams: TypeParams = {
     wrapper: "span",
     speed: 1,
@@ -53,26 +71,25 @@ export default function MyLogo() {
   }
   return (
     <div style={{
-      transform: `scale(calc( 1 - ${iCodeScale}))`
-    }} className={`origin-top-left justify-self-start w-fit text-xl min-w-[200px] font-fira `}>
+      transform: `scale(calc( 1 - ${iCodeScale}))`,
+      // Ajoutez ceci pour ajuster la taille sur mobile
+    }} className={`text-base md:text-2xl origin-top-left justify-self-start w-fit min-w-[200px] font-fira `}>
       <Link href="/" passHref>
         <div className='grid rounded-lg dark:bg-transparent '>
-          <div style={{
-            paddingRight: `calc(1.25rem + ${wrapperTranslate}rem)`
-          }} className="grid relative w-full px-8 py-5 pt-7  min-w-[100px] gap-2">
+          <div className="grid relative w-fit md:w-[calc(250px+2rem)] pl-3 md:pl-8 pb-1 md:py-5 pt-7  min-w-[100px] gap-2">
             <span style={{
               transform: `translate3d(0px , ${symbolTranslate}px , 0px)`
-            }} className="absolute left-8 text-[#4ca5d4]">~</span>
+            }} className="absolute left-3 md:left-8 text-[#4ca5d4]">~</span>
             <div style={{
               transform: `translate3d( ${iCodeTranslate}px , 0px , 0px)`
-            }} className='grid grid-flow-col grid-cols-[min-content,1fr] items-center justify-items-start'>
+            }} className='grid grid-flow-col grid-cols-[min-content,1fr] items-center justify-items-start w-fit'>
               <span className="text-[#f84534] w-fit pr-4">{'=>'}</span>
               <TypeAnimation
                 sequence={buildSequence()}
                 wrapper={TypeParams.wrapper}
                 deletionSpeed={TypeParams.deletionSpeed}
                 speed={TypeParams.speed}
-                className=' text-3xl h-[2.25rem] w-full [word-spacing:-15px;] text-[var(--background)] dark:text-[#59f687] text-left'
+                className=' text-xl md:text-3xl h-[1.5rem] md:h-[2.25rem] [word-spacing:-10px;]  md:[word-spacing:-15px;] w-fit text-[var(--background)] dark:text-[#59f687] text-left'
                 repeat={TypeParams.repeat}
               />
             </div>

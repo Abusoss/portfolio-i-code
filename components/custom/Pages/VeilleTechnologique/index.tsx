@@ -9,7 +9,7 @@ import { Title } from "../../Title";
 export const VeilleTech = () => {
    const containerRef = useRef<HTMLDivElement>(null);
    return (
-      <div className="grid grid-flow-row gap-y-20">
+      <div className="grid grid-flow-row gap-y-20 pt-10 ">
          <Title Title="Ma veille technologique !" Subtitle="Découvrez comment je reste à la pointe de l'innovation" />
          {/* Section Formation AWS et DevOps */}
          <motion.section

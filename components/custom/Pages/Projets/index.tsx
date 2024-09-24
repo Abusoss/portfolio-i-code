@@ -21,23 +21,21 @@ export const Projets = () => {
   ]
 
   return (
-    <div className="grid mx-auto px-4 py-8 sm:px-6 lg:px-8 grid-flow-row gap-20">
+    <div className="mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <Title Title="Mes Projets" Subtitle="Découvrez mes projets personnels et professionnels." />
-      <div className="grid grid-cols-[400px,1fr,400px] gap-y-20">
-        <div className="grid col-start-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 place-items-center">
 
-          {projects.map((project, key) => (
-            <ProjetCard key={key} title={project.title} image={project.image} link={project.link} />
-          ))}
-          {/* add the Tableau-synthèse-E4.pdf as an embended pdf */}
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, key) => (
+          <ProjetCard key={key} title={project.title} image={project.image} link={project.link} />
+        ))}
+      </div>
 
-        </div>
+      {/* <div className="mt-12">
         <embed
-
-          className="col-start-2 aspect-[9/11] place-self-center w-full rounded-lg shadow-lg overflow-hidden border-gray-200 border object-fill"
+          className="w-full aspect-[9/11] rounded-lg shadow-lg overflow-hidden border-gray-200 border object-fill"
           src="/Tableau-synthèse-E4.pdf?zoom=50#view=FitH">
         </embed>
-      </div>
+      </div> */}
     </div>
   )
 }

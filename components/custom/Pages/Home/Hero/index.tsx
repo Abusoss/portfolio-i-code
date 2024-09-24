@@ -50,10 +50,10 @@ function Hero<T>(props: T & HeroType) {
    };
 
    return (
-      <div className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr] 2xl:grid-cols-[0.625fr,1.75fr,0.625fr] -z-0 h-[50rem] w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-center">
+      <section className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr] 2xl:grid-cols-[0.625fr,1.75fr,0.625fr] -z-0 h-[50rem] w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-center">
          {/* Radial gradient for the container to give a faded look */}
          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-         <div className="grid col-start-2 grid-flow-row gap-5">
+         <div className="px-3 md:px-0 grid col-start-2 grid-flow-row gap-5">
             <TypeAnimation
                sequence={buildSequence()}
                wrapper={Params.wrapper}
@@ -69,7 +69,7 @@ function Hero<T>(props: T & HeroType) {
                </p>
             </div>
          </div>
-      </div>
+      </section>
    );
 }
 

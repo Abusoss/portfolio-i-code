@@ -44,10 +44,15 @@ export default function Home() {
       >
          <Hero<HomeType> {...Home} />
          <Separator />
-         <TracingBeam className="px-6">
-            <Presentation<HomeType['Portrait']> {...Home?.Portrait} {...a_propos} />
-            <Separator />
-            <ProfileForm />
+         <TracingBeam>
+            <div className="grid grid-flow-row gap-y-20 md:gap-y-0 px-2 md:px-6">
+
+               <Presentation<HomeType['Portrait']> {...Home?.Portrait} {...a_propos} />
+               <Separator />
+               <section className="grid w-full overflow-hidden snap-start">
+                  <ProfileForm />
+               </section>
+            </div>
             {/* <DevCard /> */}
          </TracingBeam>
       </main>

@@ -98,25 +98,25 @@ export const VivoInParis = () => {
     },
   ];
   return (
-    <div className="container mx-auto p-8 space-y-12">
-            <Title Title="Vivo in Paris" Subtitle="Commandez sur tous vos sites préférés,
+    <div className="container mx-auto p-4 sm:p-8 space-y-8 sm:space-y-12">
+      <Title Title="Vivo in Paris" Subtitle="Commandez sur tous vos sites préférés,
 nous réexpédions où que vous soyez !"/>
       <motion.div initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }} className="grid place-items-center w-full h-[400px] relative">
-            <Image
-               src="https://d3coo6i74goucu.cloudfront.net/7ed624dc-6186-441d-a631-e9092471cfd3.jpg?format=auto&width=1600"
-               className='object-cover'
-               alt="BTS SIO"
-               fill
-            />
-         </motion.div>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }} className="grid place-items-center w-full h-[300px] sm:h-[400px] relative">
+        <Image
+          src="https://d3coo6i74goucu.cloudfront.net/7ed624dc-6186-441d-a631-e9092471cfd3.jpg?format=auto&width=1600"
+          className='object-cover'
+          alt="BTS SIO"
+          fill
+        />
+      </motion.div>
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Aperçu du Projet</h2>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Aperçu du Projet</h2>
         <p>
           Vivo in Paris est un service qui facilite l'achat de produits en France et leur expédition vers l'international.
           Il offre des services de shopping personnalisé, de reconditionnement des colis et d'expédition à l'internationale,
@@ -125,22 +125,22 @@ nous réexpédions où que vous soyez !"/>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Spécification du Projet</h2>
-        <h3 className="text-2xl font-medium mb-2">Objectif</h3>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Spécification du Projet</h2>
+        <h3 className="text-xl sm:text-2xl font-medium mb-2">Objectif</h3>
         <p>Créer une plateforme conviviale qui simplifie l'expérience d'achat sur les boutiques en ligne européennes pour les clients internationaux.</p>
-        <h3 className="text-2xl font-medium mt-6 mb-2">Public Cible</h3>
+        <h3 className="text-xl sm:text-2xl font-medium mt-6 mb-2">Public Cible</h3>
         <p>Acheteurs internationaux souhaitant acheter des articles sur des sites de commerce électronique français et européens mais rencontrant des difficultés liées aux méthodes de paiement, à la livraison et aux barrières linguistiques.</p>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Charte Graphique / Brand Guidelines</h2>
-        <h3 className="text-2xl font-medium mb-2">Palette de Couleurs</h3>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Charte Graphique / Brand Guidelines</h2>
+        <h3 className="text-xl sm:text-2xl font-medium mb-2">Palette de Couleurs</h3>
         <ul className="space-y-1">
           <li>Gris Foncé: <span className="text-[#F1F1F1]">#F1F1F1</span></li>
           <li>Vivo 100: <span className="text-[rgba(49,49,49,1)]">rgba(49, 49, 49, 1)</span></li>
@@ -155,26 +155,26 @@ nous réexpédions où que vous soyez !"/>
           <li>Vivo 1000: <span className="text-[#f9f9f9]">#f9f9f9</span></li>
           <li>Accent Vivo: <span className="text-[#DE8571]">#DE8571</span></li>
         </ul>
-        <h3 className="text-2xl font-medium mt-6 mb-2">Typographie</h3>
+        <h3 className="text-xl sm:text-2xl font-medium mt-6 mb-2">Typographie</h3>
         <p>Police des Titres: Futura PT, sans-serif</p>
         <p>Police Principale: Segoe UI, sans-serif</p>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Exigences Fonctionnelles</h2>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Exigences Fonctionnelles</h2>
         <Accordion type="single" collapsible>
           {functionalRequirements.map((req, index) => (
-              <AccordionItem key={`${req.title}-${index}`} value={`${req.title}-${index}`}>
+            <AccordionItem key={`${req.title}-${index}`} value={`${req.title}-${index}`}>
               <AccordionTrigger>{req.title}</AccordionTrigger>
               <AccordionContent>
-              <ul className="list-disc list-inside pl-5 space-y-1">
-                {req.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+                <ul className="list-disc list-inside pl-5 space-y-1">
+                  {req.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -182,20 +182,20 @@ nous réexpédions où que vous soyez !"/>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Exigences Non Fonctionnelles</h2>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Exigences Non Fonctionnelles</h2>
         <Accordion type="single" collapsible>
           {nonFunctionalRequirements.map((req, index) => (
             <AccordionItem key={`${req.title}-${index}`} value={`${req.title}-${index}`}>
               <AccordionTrigger>{req.title}</AccordionTrigger>
               <AccordionContent>
-              <ul className="list-disc list-inside pl-5 space-y-1">
-                {req.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+                <ul className="list-disc list-inside pl-5 space-y-1">
+                  {req.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -203,22 +203,22 @@ nous réexpédions où que vous soyez !"/>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Commencer</h2>
-        <h3 className="text-2xl font-medium mb-2">Prérequis</h3>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Commencer</h2>
+        <h3 className="text-xl sm:text-2xl font-medium mb-2">Prérequis</h3>
         <ul className="list-disc list-inside pl-5 space-y-1">
           <li>Node.js (v18+)</li>
           <li>npm ou yarn</li>
           <li>Docker et Docker Compose</li>
           <li>pnpm</li>
         </ul>
-        <h3 className="text-2xl font-medium mt-6 mb-2">Installation</h3>
-        <ol className="grid gap-y-10 list-decimal list-inside pl-5 space-y-1">
+        <h3 className="text-xl sm:text-2xl font-medium mt-6 mb-2">Installation</h3>
+        <ol className="grid gap-y-6 sm:gap-y-10 list-decimal list-inside pl-5 space-y-1">
           <li >Cloner le dépôt :
-            <pre className="bg-black dark:bg-gray-100 p-2 rounded w-[320px] min-w-fit mt-5">
-              <code className="text-white dark:text-black">git clone https://github.com/Abusoss/vivo_in_paris.git</code>
+            <pre className="bg-black dark:bg-gray-100 p-2 rounded w-full max-w-[100%] mt-5">
+              <code className="text-white dark:text-black whitespace-pre-wrap">git clone https://github.com/Abusoss/vivo_in_paris.git</code>
             </pre>
           </li>
           <li>Navigation
@@ -254,12 +254,12 @@ nous réexpédions où que vous soyez !"/>
       </motion.section>
 
       <motion.section initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}>
-        <h2 className="text-3xl font-semibold mb-4">Tâches</h2>
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Tâches</h2>
         <ul className="list-disc list-inside pl-5 space-y-1">
-            <li>System de connexion(fini) (Post) --&gt; Apres traduction</li>
+          <li>System de connexion(fini) (Post) --&gt; Apres traduction</li>
           <li>System d'inscription(fini) (Mutation) --&gt; Apres traduction</li>
           <li>Portail utilisateur(presque fini) --&gt; Apres traduction</li>
           <li>Ajouter Sizes au Image/future dans le slider modal</li>
