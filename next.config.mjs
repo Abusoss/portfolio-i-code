@@ -7,7 +7,7 @@ const ContentSecurityPolicyStrict = `
   connect-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
   frame-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://www.youtube.com/ https://youtu.be/;
   script-src 'self' 'unsafe-inline' use.typekit.net/ http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
-  img-src 'self' blob: data: http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/ https://media2.giphy.com/;
+  img-src 'self' blob: data: http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://d1.awsstatic.com/ https://via.placeholder.com/ https://api.daily.dev/ https://res.cloudinary.com/ http://*.i-code.xyz/ https://*.i-code.xyz/ https://media2.giphy.com/ https://media1.giphy.com/; // Ajouté ici
   child-src 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://www.youtube.com/ https://youtu.be/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
   frame-ancestors 'self' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ https://*.facebook.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
   style-src 'unsafe-inline' http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ p.typekit.net/ http://localhost:3000/ use.typekit.net http://*.i-code.xyz/ https://*.i-code.xyz/;
@@ -58,8 +58,6 @@ const buildNextConfig = (phase) => {
       value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
     },
   ];
-
-  console.log(process.env.BUILD_STANDALONE);
 
   const nextConfig = {
     staticPageGenerationTimeout: 120000,

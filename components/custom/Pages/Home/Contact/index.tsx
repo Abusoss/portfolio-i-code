@@ -29,7 +29,6 @@ export function ProfileForm() {
    //    // ✅ This will be type-safe and validated.
    //    console.log(values)
    // }
-   console.log(gif);
    return (
       // <Form {...form}>
       <motion.div initial={{ opacity: 0, x: 50 }}
