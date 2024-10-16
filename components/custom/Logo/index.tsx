@@ -22,7 +22,6 @@ export default function MyLogo() {
   const [{ x, y }, scrollTo] = useWindowScroll();
   const iCodeTranslate = useRange(y, 0, 75, 0, 32);
   const symbolTranslate = useRange(y, 0, 75, 0, 32);
-  const wrapperTranslate = useRange(y, 0, 75, 0, 2.5);
   const iCodeScale = useRange(y, 0, 75, 0, 0.2);
 
   // Ajoutez ceci pour gérer la responsivité
