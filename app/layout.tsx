@@ -55,7 +55,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="snap-y snap-center h-screen overflow-y-scroll scroll-smooth">
+            <div className="h-screen overflow-y-scroll scroll-smooth">
               <Header />
               {children}
               <Footer />
