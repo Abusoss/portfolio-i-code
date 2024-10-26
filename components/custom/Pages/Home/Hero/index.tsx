@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { HeroType } from "../index";
 
@@ -20,6 +21,8 @@ type TypeParams = {
 };
 
 function Hero<T>(props: T & HeroType) {
+   const [isMounted, setIsMounted] = useState<boolean>(false);
+   // Rendu côté client avec l'animation
    const Params: TypeParams = {
       wrapper: "span",
       speed: 20,
@@ -36,6 +39,28 @@ function Hero<T>(props: T & HeroType) {
       ],
    };
 
+   useEffect(() => {
+      // Utiliser requestAnimationFrame pour s'assurer que le DOM est prêt
+      requestAnimationFrame(() => {
+         setIsMounted(true);
+      });
+   }, []);
+
+   // Rendu initial côté serveur
+   if (!isMounted) {
+      return (
+         <section className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr] 2xl:grid-cols-[0.625fr,1.75fr,0.625fr] -z-0 h-[50rem] w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-center">
+            {/* Radial gradient for the container to give a faded look */}
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+            <div className="px-3 md:px-0 grid col-start-2 grid-flow-row gap-5">
+               <span className="text-2xl h-[2rem] w-full text-[var(--background)] dark:text-[#59f687] text-left">
+                  {Params?.sequence[0]}
+               </span>
+            </div>
+         </section>
+      );
+   }
+
    const buildSequence = () => {
       const sequence = [];
       sequence.push(Params.startDelay);
@@ -49,6 +74,7 @@ function Hero<T>(props: T & HeroType) {
       return sequence;
    };
 
+   // Ne rendre l'animation que côté client
    return (
       <section className="grid grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr] 2xl:grid-cols-[0.625fr,1.75fr,0.625fr] -z-0 h-[50rem] w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-center">
          {/* Radial gradient for the container to give a faded look */}

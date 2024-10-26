@@ -5,10 +5,9 @@ import Link from "next/link";
 
 // <ProjetCard key={project.id} title={project.title} image={project.image} link={project.link} />
 
-export const ProjetCard = ({ key, title, image, link }: { key: number, title: string, image: string, link: string }) => {
+export const ProjetCard = ({ title, image, link }: { title: string, image: string, link: string }) => {
    return (
       <Card
-         key={key}
          className="rounded-lg overflow-hidden shadow-lg mx-auto hover:shadow-xl transition-all duration-200 min-w-[320px] max-w-[320px] h-fit"
       >
          <Image

@@ -31,7 +31,8 @@ export function ProfileForm() {
    // }
    return (
       // <Form {...form}>
-      <motion.div initial={{ opacity: 0, x: 50 }}
+      // </Form>
+      (<motion.div initial={{ opacity: 0, x: 50 }}
          whileInView={{ opacity: 1, x: 0 }}
          transition={{ duration: 0.6, delay: 0.5 }}
          viewport={{ once: true }} className="grid grid-flow-row grid-cols-1 md:grid-flow-col md:grid-cols-[0.1fr,2.8fr,0.1fr] lg:grid-cols-[0.25fr,2.5fr,0.25fr]  2xl:grid-cols-[0.625fr,1.75fr,0.625fr] w-full  relative justify-items-center place-content-center h-fit md:h-[100vh]">
@@ -87,7 +88,6 @@ export function ProfileForm() {
                </div>
             </div>
          </div>
-      </motion.div>
-      // </Form>
-   )
+      </motion.div>)
+   );
 }

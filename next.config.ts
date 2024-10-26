@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next'
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } from 'next/constants.js';
 
@@ -16,14 +16,14 @@ const ContentSecurityPolicyStrict = `
 
 const ContentSecurityPolicyLoose = ``;
 
-const buildNextConfig = (phase) => {
+const nextConf = (phase: any) => {
   let ContentSecurityPolicy;
   let X_Frame_Options;
 
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     ContentSecurityPolicy = ContentSecurityPolicyLoose;
     X_Frame_Options = '';
-  } else if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
+  } else {  // Cas par défaut pour éviter undefined
     ContentSecurityPolicy = ContentSecurityPolicyStrict;
     X_Frame_Options = 'SAMEORIGIN';
   }
@@ -59,7 +59,10 @@ const buildNextConfig = (phase) => {
     },
   ];
 
-  const nextConfig = {
+  const nextConfig: NextConfig = {
+    turbo: {
+      // ...
+    },
     staticPageGenerationTimeout: 120000,
     reactStrictMode: true,
     images: {
@@ -137,4 +140,4 @@ const buildNextConfig = (phase) => {
   })(nextConfig);
 };
 
-export default buildNextConfig;
+export default nextConf;

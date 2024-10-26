@@ -46,7 +46,7 @@ export default async function RootLayout({
       inter.className,
       fira_code.className
     )}>
-      <body className="font-inter relative antialiased">
+      <body className="font-inter relative antialiased vsc-initialized">
         <Analytics />
         <TanstackProvider>
           <ThemeProvider
