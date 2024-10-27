@@ -1,16 +1,30 @@
 import { VivoInParis } from "@/components/custom/Pages/Projets/VivoInParis";
-import { getHome } from "@/lib/data";
 import {
-    HydrationBoundary,
-    QueryClient,
-    dehydrate
+  HydrationBoundary,
+  QueryClient,
+  dehydrate
 } from '@tanstack/react-query';
 
 export default async function Page() {
   const queryClient = new QueryClient()
+  // await queryClient.prefetchQuery({
+  //   queryKey: ['Home'],
+  //   queryFn: getHome,
+  // })
   await queryClient.prefetchQuery({
     queryKey: ['Home'],
-    queryFn: getHome,
+    queryFn: async () => {
+      const data = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve({
+            Home: {
+              title: 'Home',
+            },
+          });
+        }, 1000);
+      });
+      return data;
+    },
   })
 
   // apiKey : "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh"

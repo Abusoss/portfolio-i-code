@@ -1,6 +1,5 @@
 "use client"
 import { TracingBeam } from "@/components/ui/tracing-beam"
-import { getHome } from "@/lib/data"
 import { useQuery } from "@tanstack/react-query"
 import { Separator } from "../../Separator"
 import { ProfileForm } from "./Contact"
@@ -28,14 +27,29 @@ export interface HomeType extends PresentationType, HeroType {
 
 }
 export default function Home() {
+   // const { data: Home, error, isFetched } = useQuery({
+   //    queryKey: ['Home'],
+   //    queryFn: getHome,
+   // })
    const { data: Home, error, isFetched } = useQuery({
       queryKey: ['Home'],
-      queryFn: getHome,
-   })
+      queryFn: async () => {
+        const data = await new Promise(resolve => {
+          setTimeout(() => {
+            resolve({
+              Home: {
+                title: 'Home',
+              },
+            });
+          }, 1000);
+        });
+        return data;
+      },
+    })
    const a_propos = {
-      Hero_a_propos_titre: Home?.Hero_a_propos_titre,
-      Hero_a_propos_sous_titre: Home?.Hero_a_propos_sous_titre,
-      Hero_a_propos_texte: Home?.Hero_a_propos_texte,
+      Hero_a_propos_titre: Home?.Hero_a_propos_titre || '',
+      Hero_a_propos_sous_titre: Home?.Hero_a_propos_sous_titre || '',
+      Hero_a_propos_texte: Home?.Hero_a_propos_texte || '',
    }
 
    return (

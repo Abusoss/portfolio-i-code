@@ -1,6 +1,5 @@
-import withBundleAnalyzer from '@next/bundle-analyzer';
 import type { NextConfig } from 'next';
-import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js';
+import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } from 'next/constants.js';
 
 const ContentSecurityPolicyStrict = `
   default-src 'self' https://api.daily.dev/ *.cdninstagram.com/ http://directus-i-code-env-1.eba-parw6rms.eu-west-3.elasticbeanstalk.com/ http://*.i-code.xyz/ https://*.i-code.xyz/;
@@ -24,7 +23,7 @@ const ContentSecurityPolicyStrict = `
 
 const ContentSecurityPolicyLoose = ``;
 
-const nextConf = (phase: any) => {
+const nextConf = (phase: typeof PHASE_DEVELOPMENT_SERVER | typeof PHASE_PRODUCTION_SERVER | typeof PHASE_PRODUCTION_BUILD) => {
   let ContentSecurityPolicy;
   let X_Frame_Options;
 
@@ -68,8 +67,16 @@ const nextConf = (phase: any) => {
   ];
 
   const nextConfig: NextConfig = {
-    turbo: {
-      // ...
+    experimental: {
+      turbo: {
+        resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+        rules: {
+          "*.svg": {
+            loaders: ["@svgr/webpack"],
+            as: '*.js',
+          },
+        },
+      },
     },
     staticPageGenerationTimeout: 120000,
     reactStrictMode: true,
@@ -143,9 +150,10 @@ const nextConf = (phase: any) => {
       ignoreBuildErrors: true,
     },
   };
-  return withBundleAnalyzer({
-    enabled: process.env.ANALYZE === 'true',
-  })(nextConfig);
+  // return withBundleAnalyzer({
+  //   enabled: process.env.ANALYZE === 'true',
+  // })(nextConfig);
+  return nextConfig
 };
 
 export default nextConf;

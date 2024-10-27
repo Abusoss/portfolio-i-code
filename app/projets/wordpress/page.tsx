@@ -1,5 +1,4 @@
 import { Wordpress } from "@/components/custom/Pages/Projets/Wordpress";
-import { getHome } from "@/lib/data";
 import {
   HydrationBoundary,
   QueryClient,
@@ -8,9 +7,24 @@ import {
 
 export default async function Page() {
   const queryClient = new QueryClient()
+  // await queryClient.prefetchQuery({
+  //   queryKey: ['Home'],
+  //   queryFn: getHome,
+  // })
   await queryClient.prefetchQuery({
     queryKey: ['Home'],
-    queryFn: getHome,
+    queryFn: async () => {
+      const data = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve({
+            Home: {
+              title: 'Home',
+            },
+          });
+        }, 1000);
+      });
+      return data;
+    },
   })
 
   // apiKey : "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh"
